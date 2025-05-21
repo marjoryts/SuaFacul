@@ -1,0 +1,471 @@
+/* 1. IMPORT DA FONTE INTER */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* 2. VARIÁVEIS GLOBAIS (cores, sombras, bordas) */
+:root {
+    /* Cores principais (paleta roxa) */
+    --primary-color: #5A189A;    
+    --primary-dark: #30045c;     
+    --primary-light: #9D4EDD;    
+    
+    /* Cores neutras e de destaque */
+    --second-color: #ffffff;     
+    --accent-color: #FF9100;     
+    --accent-dark: #E65100;      
+    --light-bg: #FCFBFF;         
+    
+    /* Cores de texto */
+    --text-color: #404040;       
+    --text-light: #7A7A7A;       
+    
+    /* Sombras efeitos visuais */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);  
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1); 
+    
+    /*borda */
+    --radius-sm: 5px;   /* (botões) */
+    --radius-md: 10px;  /*  (cards) */
+    --radius-lg: 20px;  /*  (containers) */
+    
+    /* Transição efeitos hover */
+    --transition: all 0.3s ease;
+}
+
+/* 3. RESET BÁSICO */
+/* Remove margens e paddings padrão e define box-model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Faz padding e border fazerem parte da largura */
+}
+
+/* 4. ESTILOS GERAIS DO BODY */
+body {
+    font-family: 'Inter', sans-serif; 
+    color: var(--text-color);         
+    background-color: var(--light-bg); 
+    line-height: 1.6;                 
+    scroll-behavior: smooth;          /* Rolagem suave */
+}
+
+/* 5. SCROLLBAR PERSONALIZADA */
+body::-webkit-scrollbar {
+    width: 0.8em; /* Largurar */
+}
+body::-webkit-scrollbar-track {
+    background: var(--light-bg); /* Cor do fundo da scrollbar */
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-light); /* Cor do "ponteiro" */
+    border-radius: 10px;                   /*  arredondada */
+    border: 2px solid var(--light-bg);     /* Borda para contraste */
+}
+
+/* HEADER E NAVBAR */
+header {
+    background: var(--second-color); 
+    box-shadow: var(--shadow-sm);    
+    position: sticky;                /* Fixa no topo */
+    top: 0;
+    z-index: 100; /* pra ficar em cima mesmo que mexa no scrollbar */
+}
+
+/* Container da navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Espaço entre logo e links */
+    align-items: center;
+    padding: 1rem 2rem;            /* Espaçamento interno */
+}
+
+/* Container dos links de navegação */
+.nav{
+    display: flex;
+    gap: 2rem;               /* Espaço entre links */
+}
+
+/* Estilo dos links */
+.navbar a {
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;            
+    transition: var(--transition); 
+    padding: 5px 15px !important; /* sem isso não vai o espaço */
+    margin: 0 5px !important;      /* espaçamento entre os links!!! */
+    display: inline-block;
+    position: relative;
+}
+
+/* efeito hover nos links */
+.navbar a:hover {
+    color: var(--primary-dark);
+}
+
+/* Efeito de sublinhado animado */
+.navbar a::after {
+    content: '';                   
+    position: absolute;
+    bottom: -5px;                  /* abaixo */
+    left: 0;
+    width: 0;                      /* Começa invisível */
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition); /* Anima a largura */
+}
+
+/* Quando passar o mouse, expande o sublinhado */
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* 7. BOTÃO ENTRAR */
+.btn-entrar {
+    padding: 0.7rem 1.4rem;
+    background: var(--accent-color); 
+    color: var(--second-color);      
+    border: none;
+    border-radius: var(--radius-sm); 
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);    
+    transition: var(--transition);  
+}
+
+/* Efeito hover do botão */
+.btn-entrar:hover {
+    background: var(--accent-dark);  
+    transform: translateY(-2px);    
+    box-shadow: var(--shadow-md);  
+}
+
+/* 8. SEÇÃO HERO (PRINCIPAL) */
+.hero {
+
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--second-color);     
+    text-align: center;
+    padding: 4rem 1rem;             /* Espaçamento interno */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Título principal */
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+/* Destaque no futuro */
+.hero h1 em {
+    font-style: normal;
+    color: var(--accent-color); 
+}
+
+/* 9. CONTAINER PRINCIPAL */
+.container {
+    background: var(--second-color); 
+    width: min(90%, 55rem);
+    margin: 2rem auto;              
+    border-radius: var(--radius-md); 
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);  
+}
+
+/* FORMULÁRIO DE PESQUISA */
+.container-input {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.5rem;                    /* essencial pra não ficar torto*/
+}
+
+/* Cards do formulário */
+.card {
+    padding: 1rem;                /* deixa tudo em uma linha */
+    margin-top: 1rem;
+}
+
+/* Rótulos dos campos */
+.card label {
+    display: block;                 /* faz ocupar linha inteira */
+    color: var(--primary-color);    
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Campos de texto */
+.text-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: var(--transition); /*transição fofinha*/
+}
+
+/* Efeito do campo de texto */
+.text-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    /* Sombra externa roxa sutil */
+    box-shadow: 0 0 0 3px rgba(90, 24, 154, 0.2);
+}
+
+/*FILTROS */
+.filtros, .filtros1 {
+    display: flex;
+    flex-wrap: wrap;                /*quebra de linha para o botão */
+    gap: 1rem;                     
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.filtros {
+    justify-content: space-between; /* espaço entre checkboxes e botão */
+}
+
+/* Estilo dos rótulos dos filtros */
+.filtros label, .filtros1 label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;                   /*  espaço das caixinha com o texto */
+    cursor: pointer;              
+    font-size: 0.9rem;
+}
+
+/* 12. BOTÃO BUSCAR */
+.btn-buscar {
+    background: var(--accent-color); 
+    color: var(--second-color);     
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Efeito hover do botão */
+.btn-buscar:hover {
+    background: var(--accent-dark);  
+    transform: translateY(-2px);     /* Levanta levemente */
+    box-shadow: var(--shadow-md);    /* Aumenta a sombra */
+}
+
+/* VESTIBULARES */
+.vestibulares {
+    padding: 4rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;                 /* Centraliza */
+}
+
+/* Título da seção */
+.vestibulares h2 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Linha decorativa abaixo do título */
+.vestibulares h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color); 
+    margin: 0.5rem auto;            /* Centraliza */
+    border-radius: 2px;
+}
+
+/* Lista de vestibulares */
+.vestibulares-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Cards de vestibular */
+.vestibular {
+    background: var(--second-color); 
+    border-radius: var(--radius-lg); 
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-light); 
+}
+
+/* Efeito hover nos cards */
+.vestibular:hover {
+    transform: translateY(-5px);    /* Levanta o card */
+    box-shadow: var(--shadow-lg);   /* Aumenta a sombra */
+}
+
+/* Título do vestibular */
+.vestibular h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* Texto do vestibular */
+.vestibular p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Data do vestibular (estilo especial) */
+.vestibular p:first-of-type {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-color); /* Laranja */
+    color: var(--second-color);      /* Branco */
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;            /* Bordas completamente arredondadas */
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Link "Saiba mais" */
+.vestibular a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* Efeito hover no link */
+.vestibular a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* 14. SEÇÃO CURSOS */
+.container-curso {
+    padding: 4rem 1rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    background: var(--second-color); /* Fundo branco */
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+/* Título da seção */
+.container-curso h1 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Linha decorativa abaixo do título */
+.container-curso h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
+/* 15. BARRA DE PESQUISA */
+.pesquisa-container {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+    position: relative;
+}
+
+/* Título "Pesquise o curso" */
+.pesquisa-titulo {
+    font-size: 1rem;
+    color: var(--primary-dark);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Campo de input */
+.pesquisa-container input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid var(--primary-light); /* Borda roxa clara */
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    transition: var(--transition);
+    padding-right: 40px;           /* Espaço para o ícone */
+    background-color: var(--light-bg);
+}
+
+/* Efeito quando o campo está em foco */
+.pesquisa-container input:focus {
+    outline: none;
+    border-color: var(--accent-color); /* Borda laranja */
+    box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.2); /* Sombra laranja */
+}
+
+/* Ícone de lupa (usando emoji) */
+.pesquisa-container::after {
+    content: '🔍';
+    position: absolute;
+    right: 25px;
+    top: 58%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+/* 16. LISTA DE CURSOS */
+.cursos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+/* Itens da lista de cursos */
+.curso-item {
+    background: var(--light-bg);    
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid rgba(90, 24, 154, 0.1);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;             
+}
+
+/* Efeito hover nos cursos */
+.curso-item:hover {
+    background: var(--primary-color); 
+    color: var(--second-color);      
+    transform: translateY(-5px);     /* Levanta o item */
+    box-shadow: 0 10px 20px rgba(90, 24, 154, 0.2);
+    border-color: transparent;       /* Remove a borda */
+}
+
+/* Efeito ao clicar */
+.curso-item:active {
+    transform: translateY(-2px) scale(0.98);
+}

@@ -1,0 +1,124 @@
+<!-- 
+    RA: 2920482411013 Gabriela Sampaio 
+    RA:  Erick Dantas 
+    RA: 2920482411003 Marjory Sousa 
+    RA: 2920482411005 Vinicius Codo !--> 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuaFacul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="imagens/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
+            </div>
+            <nav>
+                <a href="#">Vestibulares</a>
+                <a href="#">Teste Vocacional</a>
+                <a href="#">Faculdades</a>
+                <a href="#">Sobre nós</a>
+                <button class="btn-entrar" onclick="location.href='login.html'">Entrar</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Seu <em><strong>futuro</strong></em> em um só lugar!</h1>
+            <div class="container">
+                <div class="container-input">
+                    <div class="card">
+                        <label for="curso"> Qual curso deseja estudar?</label>
+                        <input type="text" class="text-input" placeholder="Digite o curso">
+                        <div class="filtros1">
+                            <label><input type="checkbox"> Presencial</label>
+                            <label><input type="checkbox"> Semi</label>
+                            <label><input type="checkbox"> EaD</label>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <label for="faculdade"> Em qual faculdade?</label>
+                        <input type="text" class="text-input" placeholder="Digite a faculdade">
+                    </div>
+                    <div class="card">
+                        <label for="cidade">Em que cidade quer estudar?</label>
+                        <input type="text" class="text-input" placeholder="Digite a cidade">
+                        <div class="filtros">
+                            <label><input type="radio" name="type"> Pública</label>
+                            <label><input type="radio" name="type"> Particular</label>
+                            <button class="btn-buscar">Buscar</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="container-filtros">
+                <div class="filtros">
+
+                </div>
+            </div>
+            </div>
+
+        </section>
+
+        <section class="vestibulares">
+            <h2>Próximos vestibulares</h2>
+            <div class="vestibulares-lista">
+                <div class="vestibular">
+                    <h3>Fuvest</h3>
+                    <p>23/11</p>
+                    <p>Universidade de São Paulo</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+                <div class="vestibular">
+                    <h3>Comvest</h3>
+                    <p>Em espera</p>
+                    <p>Universidade Estadual de Campinas</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+                <div class="vestibular">
+                    <h3>FATEC</h3>
+                    <p>29/06</p>
+                    <p>Faculdade de Tecnologia do Estado de São Paulo</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+                    <div class="vestibular">
+                    <h3>UNESP</h3>
+                    <p>02/11</p>
+                    <p>Universidade Estadual Paulista</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+                
+            </div>
+        </section>
+        <div class="container-curso">
+        <h1>Cursos</h1>
+        
+        <div>
+            <div class="pesquisa-container">
+            <div class="pesquisa-titulo">Pesquise o curso</div>
+            <input type="text" placeholder="Digite o curso">
+        </div>
+
+        <div class="cursos-lista">
+            <div class="curso-item">Análise e Desenvolvimento de Sistemas</div>
+            <div class="curso-item">Medicina</div>
+            <div class="curso-item">Engenharia de Software</div>
+            <div class="curso-item">Administração</div>
+            <div class="curso-item">Direito</div>
+            <div class="curso-item">Letras</div>
+            <div class="curso-item">Ciência da Computação</div>
+            <div class="curso-item">Sistema de Informações</div>
+        </div>
+        </section>
+    </main>
+</body>
+
+</html>
