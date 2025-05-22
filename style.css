@@ -54,19 +54,19 @@ body::-webkit-scrollbar {
     width: 0.8em; /* Largurar */
 }
 body::-webkit-scrollbar-track {
-    background: var(--light-bg); /* Cor do fundo da scrollbar */
+    background: var(--light-bg); /* cor do fundo da scrollbar */
 }
 body::-webkit-scrollbar-thumb {
     background-color: var(--primary-light); /* Cor do "ponteiro" */
     border-radius: 10px;                   /*  arredondada */
-    border: 2px solid var(--light-bg);     /* Borda para contraste */
+    border: 2px solid var(--light-bg);     
 }
 
 /* HEADER E NAVBAR */
 header {
     background: var(--second-color); 
     box-shadow: var(--shadow-sm);    
-    position: sticky;                /* Fixa no topo */
+    position: sticky;                /* fixa no topo */
     top: 0;
     z-index: 100; /* pra ficar em cima mesmo que mexa no scrollbar */
 }
@@ -146,7 +146,7 @@ header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: var(--second-color);     
     text-align: center;
-    padding: 4rem 1rem;             /* Espaçamento interno */
+    padding: 4rem 1rem;    
     position: relative;
     overflow: hidden;
 }
@@ -211,7 +211,6 @@ header {
 .text-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    /* Sombra externa roxa sutil */
     box-shadow: 0 0 0 3px rgba(90, 24, 154, 0.2);
 }
 
@@ -325,20 +324,20 @@ header {
     font-size: 0.9rem;
 }
 
-/* Data do vestibular (estilo especial) */
+/* data do vestibular (estilo especial) */
 .vestibular p:first-of-type {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--accent-color); /* Laranja */
-    color: var(--second-color);      /* Branco */
+    background: var(--accent-color); 
+    color: var(--second-color);      
     padding: 0.3rem 0.8rem;
-    border-radius: 20px;            /* Bordas completamente arredondadas */
+    border-radius: 20px;           
     font-size: 0.8rem;
     font-weight: 600;
 }
 
-/* Link "Saiba mais" */
+/* "saiba mais" */
 .vestibular a {
     display: inline-block;
     margin-top: 1rem;
@@ -348,24 +347,24 @@ header {
     transition: var(--transition);
 }
 
-/* Efeito hover no link */
+/*  hover no link */
 .vestibular a:hover {
     color: var(--primary-dark);
     text-decoration: underline;
 }
 
-/* 14. SEÇÃO CURSOS */
+/* CURSOS */
 .container-curso {
     padding: 4rem 1rem;
     max-width: 1400px;
     margin: 2rem auto;
-    background: var(--second-color); /* Fundo branco */
+    background: var(--second-color); 
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     position: relative;
 }
 
-/* Título da seção */
+/* título da seção */
 .container-curso h1 {
     font-size: 2rem;
     color: var(--primary-dark);
@@ -374,7 +373,7 @@ header {
     position: relative;
 }
 
-/* Linha decorativa abaixo do título */
+/* linha decorativa abaixo do título */
 .container-curso h1::after {
     content: '';
     display: block;
@@ -385,7 +384,7 @@ header {
     border-radius: 2px;
 }
 
-/* 15. BARRA DE PESQUISA */
+/* BARRA DE PESQUISA */
 .pesquisa-container {
     max-width: 600px;
     margin: 0 auto 2rem;
@@ -393,7 +392,7 @@ header {
     position: relative;
 }
 
-/* Título "Pesquise o curso" */
+/* "Pesquise o curso" */
 .pesquisa-titulo {
     font-size: 1rem;
     color: var(--primary-dark);
@@ -407,27 +406,27 @@ header {
 .pesquisa-container input {
     width: 100%;
     padding: 0.8rem 1.2rem;
-    border: 2px solid var(--primary-light); /* Borda roxa clara */
+    border: 2px solid var(--primary-light); 
     border-radius: var(--radius-lg);
     font-size: 1rem;
     transition: var(--transition);
-    padding-right: 40px;           /* Espaço para o ícone */
+    padding-right: 40px;           /* espaço para o ícone */
     background-color: var(--light-bg);
 }
 
-/* Efeito quando o campo está em foco */
+/* Eeito quando o campo está em foco */
 .pesquisa-container input:focus {
     outline: none;
-    border-color: var(--accent-color); /* Borda laranja */
-    box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.2); /* Sombra laranja */
+    border-color: var(--accent-color); 
+    box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.2); 
 }
 
-/* Ícone de lupa (usando emoji) */
+/* ícone de lupa (usando emoji) */
 .pesquisa-container::after {
     content: '🔍';
     position: absolute;
     right: 25px;
-    top: 58%;
+    top: 70%;
     transform: translateY(-50%);
     opacity: 0.7;
 }
@@ -461,9 +460,9 @@ header {
 .curso-item:hover {
     background: var(--primary-color); 
     color: var(--second-color);      
-    transform: translateY(-5px);     /* Levanta o item */
+    transform: translateY(-5px);     /* levanta o item */
     box-shadow: 0 10px 20px rgba(90, 24, 154, 0.2);
-    border-color: transparent;       /* Remove a borda */
+    border-color: transparent;       /* remove a borda */
 }
 
 /* Efeito ao clicar */
