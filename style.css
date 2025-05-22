@@ -33,7 +33,7 @@
 }
 
 /* 3. RESET BÁSICO */
-/* Remove margens e paddings padrão e define box-model */
+/*  define box-model */
 * {
     margin: 0;
     padding: 0;
@@ -46,7 +46,7 @@ body {
     color: var(--text-color);         
     background-color: var(--light-bg); 
     line-height: 1.6;                 
-    scroll-behavior: smooth;          /* Rolagem suave */
+    scroll-behavior: smooth;        
 }
 
 /* 5. SCROLLBAR PERSONALIZADA */
@@ -57,8 +57,8 @@ body::-webkit-scrollbar-track {
     background: var(--light-bg); /* cor do fundo da scrollbar */
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-light); /* Cor do "ponteiro" */
-    border-radius: 10px;                   /*  arredondada */
+    background-color: var(--primary-color); /* cor do scroll */
+    border-radius: 10px;                  
     border: 2px solid var(--light-bg);     
 }
 
@@ -76,23 +76,23 @@ header {
     display: flex;
     justify-content: space-between; /* Espaço entre logo e links */
     align-items: center;
-    padding: 1rem 2rem;            /* Espaçamento interno */
+    padding: 1rem 3rem;            /* Espaçamento interno */
 }
 
 /* Container dos links de navegação */
 .nav{
     display: flex;
-    gap: 2rem;               /* Espaço entre links */
+    gap: 2rem;             /* Espaço entre links */
 }
 
 /* Estilo dos links */
 .navbar a {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--primary-color);
     text-decoration: none;
     position: relative;            
     transition: var(--transition); 
-    padding: 5px 15px !important; /* sem isso não vai o espaço */
+    padding: 4px 11px !important; /* sem isso não vai o espaço */
     margin: 0 5px !important;      /* espaçamento entre os links!!! */
     display: inline-block;
     position: relative;
@@ -107,7 +107,7 @@ header {
 .navbar a::after {
     content: '';                   
     position: absolute;
-    bottom: -5px;                  /* abaixo */
+    bottom: -2px;                  /* abaixo */
     left: 0;
     width: 0;                      /* Começa invisível */
     height: 2px;
@@ -129,6 +129,7 @@ header {
     border-radius: var(--radius-sm); 
     font-weight: 600;
     cursor: pointer;
+    margin-left: 9rem;
     box-shadow: var(--shadow-sm);    
     transition: var(--transition);  
 }
