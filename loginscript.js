@@ -8,7 +8,7 @@ regiserBtn.addEventListener('click', () => {
 
 loginBtn.addEventListener('click', () => {
     container.classList.remove('active');
-});
+}); 
 
 // google
 function onSignIn(googleUser) {

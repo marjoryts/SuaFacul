@@ -248,6 +248,7 @@ header {
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
+    margin-left: 9.2rem;
 }
 
 /* Efeito hover do botão */
