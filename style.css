@@ -256,10 +256,15 @@ header {
 .btn-buscar:hover {
     background: var(--accent-dark);  
     transform: translateY(-2px);     /* Levanta levemente */
-    box-shadow: var(--shadow-md);    /* Aumenta a sombra */
+    box-shadow: var(--shadow-md);    
 }
 
 /* faculdades em destaques! */
+
+/*onda */
+svg{
+    display: block;
+}
 
 .faculdades{
     padding: 4rem 1rem;
@@ -286,14 +291,27 @@ header {
     border-radius: 2px;
 }
 
-/* Lista de faculdades */
-.faculdades-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+
+/* Título de faculdad */
+.faculdade h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
 }
-/* Cards de vestibular */
+
+/* Texto de faculdade */
+.faculdade p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/*  hover no link */
+.faculdade a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
 .faculdade {
     background: var(--second-color); 
     border-radius: var(--radius-lg); 
@@ -305,37 +323,18 @@ header {
     border: 2px solid var(--primary-light); 
 }
 
-/* Efeito hover nos cards */
+
 .faculdade:hover {
-    transform: translateY(-5px);    /* Levanta o card */
-    box-shadow: var(--shadow-lg);   /* Aumenta a sombra */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Título do vestibular */
+/* Estilo para o título da faculdade */
 .faculdade h3 {
-    color: var(--primary-dark);
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-}
-
-/* Texto do vestibular */
-.faculdade p {
-    color: var(--text-light);
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-/* data do vestibular (estilo especial) */
-.faculdade p:first-of-type {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--accent-color); 
-    color: var(--second-color);      
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;           
-    font-size: 0.8rem;
-    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 /* "saiba mais" */
@@ -347,11 +346,17 @@ header {
     text-decoration: none;
     transition: var(--transition);
 }
-
-/*  hover no link */
 .faculdade a:hover {
     color: var(--primary-dark);
     text-decoration: underline;
+}
+
+/* Container para a lista de faculdades */
+.faculdades-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 /* VESTIBULARES */
