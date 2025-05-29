@@ -32,7 +32,6 @@
     --transition: all 0.3s ease;
 }
 
-/* 3. RESET BÁSICO */
 /* define box-model */
 * {
     margin: 0;
@@ -635,14 +634,14 @@ footer {
     color: var(--second-color);
     padding: 3rem 0;
 }
-
+ 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
 }
-
+ 
 .footer-about h3,
 .footer-links h4,
 .footer-help h4,
@@ -651,23 +650,23 @@ footer {
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
-
+ 
 .footer-about p {
     font-size: 0.95rem;
     line-height: 1.8;
     opacity: 0.8;
 }
-
+ 
 .footer-links ul,
 .footer-help ul {
     list-style: none;
 }
-
+ 
 .footer-links li,
 .footer-help li {
     margin-bottom: 0.7rem;
 }
-
+ 
 .footer-links a,
 .footer-help a {
     color: var(--second-color);
@@ -676,29 +675,29 @@ footer {
     opacity: 0.8;
     transition: var(--transition);
 }
-
+ 
 .footer-links a:hover,
 .footer-help a:hover {
     opacity: 1;
     color: var(--accent-color);
 }
-
+ 
 .social-icons {
     display: flex;
     gap: 1rem;
 }
-
+ 
 .social-icons a {
     color: var(--second-color);
     font-size: 1.5rem;
     transition: var(--transition);
 }
-
+ 
 .social-icons a:hover {
     color: var(--accent-color);
     transform: translateY(-3px);
 }
-
+ 
 .footer-copyright {
     text-align: center;
     padding-top: 1.5rem;
@@ -706,85 +705,21 @@ footer {
     font-size: 0.9rem;
     opacity: 0.7;
 }
-
+ 
 /* --- */
-
-@media (max-width: 992px) {
-    .navbar a {
-        padding: 4px 5px !important;
-        margin: 0 2px !important;
-    }
-}
-
+ 
+/* Seção do Media Query para o rodapé */
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 1.5rem;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        display: none; /* Hidden by default for mobile */
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .navbar.active {
-        display: flex; /* Show when active */
-    }
-
-    .navbar a {
-        width: 100%;
-        padding: 0.8rem 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .btn-login {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 0.5rem;
-    }
-
-    .mobile-menu {
-        display: block; /* Show mobile menu button */
-        position: absolute;
-        top: 2rem;
-        right: 1.5rem;
-    }
-
-    .courses-container {
-        flex-direction: column;
-    }
-
-    .filters {
-        width: 100%;
-        flex: none; /* Remove fixed width */
-        margin-bottom: 2rem;
-    }
-
-    .filter-options button {
-        margin-bottom: 0.75rem;
-    }
-
-    .pagination a {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-    }
-
     .footer-grid {
-        grid-template-columns: 1fr; /* Stack columns */
+        grid-template-columns: 1fr; /* Colunas empilhadas */
         text-align: center;
     }
-
+ 
     .footer-links ul,
     .footer-help ul {
         padding: 0;
     }
-
+ 
     .footer-social .social-icons {
         justify-content: center;
     }

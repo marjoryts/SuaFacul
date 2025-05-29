@@ -558,30 +558,10 @@ svg{
     min-height: 80px;             
 }
 
-/* Efeito hover nos cursos */
 .curso-item:hover {
     background: var(--primary-color); 
     color: var(--second-color);      
-    transform: translateY(-5px);     /* levanta o item */
+    transform: translateY(-5px);     
     box-shadow: 0 10px 20px rgba(90, 24, 154, 0.2);
-    border-color: transparent;       /* remove a borda */
-}
-
-/* Efeito ao clicar */
-.curso-item:active {
-    transform: translateY(-2px) scale(0.98);
-}
-
-footer-row{
-    margin: 100%;
-}
-
-.footer-row{
-    text-align: center;
-    padding: 20px 0;
-    color: #ddd;
-    background-color: #30045c;
-    display: grid;
-    grid-template-columns: repeat(4, 1r);
-    padding: 3rem 3.5rem;
+    border-color: transparent;       
 }
