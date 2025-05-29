@@ -239,7 +239,7 @@ header {
 }
 
 .search-box i {
-    color: var(--light-bg)
+    color: var(--light-bg);
     align-items: center;
 
 }
