@@ -3,21 +3,35 @@
     RA: 2920482411026 Erick Dantas 
     RA: 2920482411003 Marjory Sousa 
     RA: 2920482411005 Vinicius Codo !--> 
-<!DOCTYPE html>
+    <?php
+    $base = "/SuaFacul/public"; 
+
+session_start(); // Isso deve estar antes de qualquer HTML
+
+    
+    
+    use App\Controllers\HomeController;
+    
+    $controller = new HomeController();
+    $controller->index();
+?>    
+
+    <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuaFacul</title>
-    <link rel="stylesheet" href="./css/pages/style.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/SuaFacul/public/assets/css/pages/style.css">
+    <!-- <img src="/SuaFacul/public/assets/images/suafacul_icon.png"> -->
+
 </head>
 
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
-                <img src="imagens/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
+                <img src="/SuaFacul/public/assets/images/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
             </div>
             <nav>
                 <a href="#">Vestibulares</a>
@@ -26,7 +40,7 @@
                 <a href="cursos.html">Cursos</a>
                 <a href="#">Ajuda</a>
                 <a href="#">Sobre nós</a>
-                <button class="btn-entrar" onclick="location.href='login.html'">Entrar</button>
+                <button class="btn-entrar" onclick="location.href='/SuaFacul/app/Views/Auth/login.php'">Entrar</button>
             </nav>
         </div>
     </header>

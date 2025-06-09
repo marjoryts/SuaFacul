@@ -1,0 +1,10 @@
+{
+    "name": "erick/sua-facul",
+    "autoload": {
+      "psr-4": {
+        "App\\": "app/"
+      }
+    },
+    "require": {}
+  }
+  

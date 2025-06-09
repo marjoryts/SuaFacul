@@ -13,7 +13,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="imagens/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
+                    <img src="/SuaFacul/public/assets/images/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
                 </div>
                 
                 <nav class="navbar">
