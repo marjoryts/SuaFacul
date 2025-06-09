@@ -574,9 +574,10 @@ footer {
  
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+    padding: 1rem 0 0 3rem;
 }
  
 .footer-about h3,
