@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda</title>
+    <title>Ajuda | SuaFacul</title>
+    <link rel="stylesheet" href="./css/pages/ajuda.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
-    
-</body>
-</html>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="imagens/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
+                </div>
+                
+                <nav class="navbar">
+                    <a href="vestibulares.html">Vestibulares</a>
+                    <a href="testevocacional.html">Teste Vocacional</a>
+                    <a href="faculdades.html">Faculdades</a>
+                    <a href="cursos.html">Cursos</a>
+                    <a href="ajuda.html" class="active">Ajuda</a>
+                    <a href="sobrenos.html">Sobre nós</a>
+                    <button class="btn-login" onclick="location.href='login.html'"> 
+                        Entrar
+                    </button>
+                </nav>
+                
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero ajuda-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Como podemos <span>ajudar você</span>?</h1>
+                    <p>Encontre respostas para suas dúvidas, explore nossos recursos ou entre em contato com nossa equipe de suporte.</p>
+                    
+                    <div class="search-box">
+                        <input type="text" placeholder="Pesquise por uma dúvida ou tópico">
+                        <button class="btn-search">
+                            Buscar <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="wave"></div>
+        
+        <section class="help-content-section">
+            <div class="container">
+                <div class="help-sections-grid">
+                    <div class="faq-section">
+                        <h2><i class="fas fa-question-circle"></i> Perguntas Frequentes (FAQ)
