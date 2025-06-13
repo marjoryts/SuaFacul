@@ -261,11 +261,6 @@ header {
 
 /* faculdades em destaques! */
 
-/*onda */
-svg{
-    display: block;
-}
-
 .faculdades{
     padding: 4rem 1rem;
     max-width: 1400px;
@@ -358,7 +353,10 @@ svg{
     gap: 1.5rem;
     margin-top: 2rem;
 }
-
+.faculdade img{
+    width: 100%;
+    display: block;
+}
 /* VESTIBULARES */
 .vestibulares {
     padding: 4rem 1rem;
