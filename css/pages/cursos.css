@@ -1,20 +1,15 @@
-/* 1. IMPORT DA FONTE INTER */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* 2. VARIÁVEIS GLOBAIS (cores, sombras, bordas) */
 :root {
-    /* Cores principais (paleta roxa) */
     --primary-color: #5A189A;
     --primary-dark: #30045c;
     --primary-light: #9D4EDD;
 
-    /* Cores neutras e de destaque */
     --second-color: #ffffff;
     --accent-color: #FF9100;
     --accent-dark: #E65100;
     --light-bg: #FCFBFF;
 
-    /* Cores de texto */
     --text-color: #404040;
     --text-light: #7A7A7A;
 
@@ -28,18 +23,18 @@
     --radius-md: 10px; /* (cards) */
     --radius-lg: 20px; /* (containers) */
 
-    /* Transição efeitos hover */
+    
     --transition: all 0.3s ease;
 }
 
-/* define box-model */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Faz padding e border fazerem parte da largura */
 }
 
-/* 4. ESTILOS GERAIS DO BODY */
+
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
@@ -50,13 +45,13 @@ body {
 
 /* 5. SCROLLBAR PERSONALIZADA */
 body::-webkit-scrollbar {
-    width: 0.8em; /* Largurar */
+    width: 0.8em; 
 }
 body::-webkit-scrollbar-track {
-    background: var(--light-bg); /* cor do fundo da scrollbar */
+    background: var(--light-bg); 
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color); /* cor do scroll */
+    background-color: var(--primary-color); 
     border-radius: 10px;
     border: 2px solid var(--light-bg);
 }
@@ -92,11 +87,10 @@ header {
     margin: 0;
 }
 
-/* Container dos links de navegação */
 .navbar {
     display: flex;
-    gap: 2rem; /* Espaço entre links */
-    align-items: center; /* Align items vertically */
+    gap: 2rem; 
+    align-items: center; 
 }
 
 /* Estilo dos links */
@@ -106,8 +100,8 @@ header {
     text-decoration: none;
     position: relative;
     transition: var(--transition);
-    padding: 4px 0; /* Adjusted padding to remove the 11px */
-    margin: 0 5px; /* Adjusted margin to remove the 5px */
+    padding: 4px 0; 
+    margin: 0 5px; 
     display: inline-block;
 }
 
@@ -130,24 +124,20 @@ header {
 .navbar a::after {
     content: '';
     position: absolute;
-    bottom: -2px; /* abaixo */
+    bottom: -2px; 
     left: 0;
     width: 0; /* Começa invisível */
     height: 2px;
     background: var(--primary-color);
-    transition: var(--transition); /* Anima a largura */
+    transition: var(--transition); 
 }
 
-/* Quando passar o mouse, expande o sublinhado */
 .navbar a:hover::after {
     width: 100%;
 }
 
-/* --- */
-
-
 /* BOTÃO ENTRAR */
-.btn-login { /* Changed from .btn-entrar to .btn-login */
+.btn-login { 
     padding: 0.7rem 1.4rem;
     background: var(--accent-color);
     color: var(--second-color);
@@ -155,30 +145,26 @@ header {
     border-radius: var(--radius-sm);
     font-weight: 600;
     cursor: pointer;
-    margin-left: 1rem; /* Adjusted margin-left */
+    margin-left: 1rem; 
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 /* Efeito hover do botão */
-.btn-login:hover { /* Changed from .btn-entrar to .btn-login */
+.btn-login:hover {
     background: var(--accent-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
-/* Mobile Menu Button - Initially hidden */
 .mobile-menu {
-    display: none; /* Hide by default for desktop */
+    display: none; 
     background: none;
     border: none;
     color: var(--primary-color);
     font-size: 1.5rem;
     cursor: pointer;
 }
-
-/* --- */
-
 
 /* SEÇÃO HERO (PRINCIPAL) */
 .hero {
@@ -199,12 +185,12 @@ header {
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: 600;
-    margin-bottom: 1rem; /* Adjusted margin */
+    margin-bottom: 1rem;
     line-height: 1.2;
 }
 
 /* Destaque no futuro */
-.hero h1 span { /* Changed from em to span */
+.hero h1 span { 
     font-style: normal;
     color: var(--accent-color);
 }
@@ -265,21 +251,18 @@ header {
 
 /* Wave Divider */
 .wave {
-    background-color: var(--light-bg); /* Match body background */
-    height: 100px; /* Adjust height as needed */
+    background-color: var(--light-bg); 
+    height: 100px; 
     position: relative;
     overflow: hidden;
-    margin-top: -1px; /* To prevent gap */
+    margin-top: -1px;
 }
-
-/* --- */
-
 
 /* CONTAINER PRINCIPAL */
 .container {
-    max-width: 1200px; /* Increased max-width for better layout */
-    margin: 0 auto; /* Centered container */
-    padding: 0 1.5rem; /* Added horizontal padding */
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 1.5rem; 
 }
 
 .courses-section {
@@ -293,12 +276,12 @@ header {
 }
 
 .filters {
-    flex: 0 0 280px; /* Fixed width for filters */
+    flex: 0 0 280px;
     background-color: var(--second-color);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     padding: 1.5rem;
-    align-self: flex-start; /* Align to the top */
+    align-self: flex-start;
 }
 
 .filters-content h3 {
@@ -328,7 +311,7 @@ header {
 }
 
 .filter-options button {
-    display: block; /* Make buttons block level for full width */
+    display: block;
     width: 100%;
     text-align: left;
     padding: 0.7rem 1rem;
@@ -370,7 +353,7 @@ header {
 
 .filter-options input[type="checkbox"] {
     margin-right: 0.5rem;
-    accent-color: var(--primary-color); /* Style the checkbox */
+    accent-color: var(--primary-color);
 }
 
 .btn-apply {
@@ -392,9 +375,6 @@ header {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
-
-/* --- */
-
 
 .courses-list {
     flex-grow: 1;
@@ -468,15 +448,15 @@ header {
 }
 
 .tag.presencial {
-    background-color: #28a745; /* Green */
+    background-color: #28a745; 
 }
 
 .tag.ead {
-    background-color: #007bff; /* Blue */
+    background-color: #007bff; 
 }
 
 .tag.semipresencial {
-    background-color: #fd7e14; /* Orange */
+    background-color: #fd7e14;
 }
 
 .institution {
@@ -492,7 +472,7 @@ header {
     font-size: 0.95rem;
     color: var(--text-color);
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allows description to take available space */
+    flex-grow: 1;
 }
 
 .course-footer {
@@ -526,7 +506,7 @@ header {
     color: var(--primary-dark);
 }
 
-/* Pagination */
+/* Paginação */
 .pagination {
     display: flex;
     justify-content: center;
@@ -563,9 +543,6 @@ header {
     border-color: var(--primary-color);
 }
 
-/* --- */
-
-
 .vocational-test {
     background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
     color: var(--second-color);
@@ -583,13 +560,13 @@ header {
 }
 
 .test-container {
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.15); 
     border-radius: var(--radius-lg);
     padding: 2.5rem;
     max-width: 700px;
     margin: 0 auto;
     box-shadow: var(--shadow-md);
-    backdrop-filter: blur(5px); /* Optional: adds a frosted glass effect */
+    backdrop-filter: blur(5px); 
 }
 
 .test-container h3 {
@@ -625,9 +602,6 @@ header {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
-
-/* --- */
-
 
 footer {
     background-color: var(--primary-dark);
@@ -705,8 +679,6 @@ footer {
     font-size: 0.9rem;
     opacity: 0.7;
 }
- 
-/* --- */
  
 /* Seção do Media Query para o rodapé */
 @media (max-width: 768px) {
