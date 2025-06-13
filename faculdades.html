@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vestibulares | SuaFacul</title>
-    <link rel="stylesheet" href="./css/pages/vestibulares.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Faculdades | SuaFacul</title>
+    <link rel="stylesheet" href="./css/pages/faculdades.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -16,10 +16,10 @@
                 </div>
                 
                 <nav class="navbar">
-                    <a href="vestibulares.html" class="active">Vestibulares</a> 
+                    <a href="vestibulares.html">Vestibulares</a>
                     <a href="testevocacional.html">Teste Vocacional</a>
-                    <a href="faculdades.html">Faculdades</a>
                     <a href="cursos.html">Cursos</a>
+                    <a href="#" class="active">Faculdades</a> 
                     <a href="ajuda.html">Ajuda</a>
                     <a href="sobrenos.html">Sobre nós</a>
                     <button class="btn-login" onclick="location.href='login.html'"> 
@@ -38,11 +38,11 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Seu caminho para a universidade começa aqui: <span>Vestibulares</span></h1>
-                    <p>Encontre os principais vestibulares do Brasil, datas importantes, editais e dicas de estudo para garantir sua vaga.</p>
+                    <h1>Encontre a <span>faculdade ideal</span> para o seu futuro</h1>
+                    <p>Explore as melhores universidades e faculdades do Brasil. Compare instituições, descubra programas de estudo e comece sua jornada acadêmica.</p>
                     
                     <div class="search-box">
-                        <input type="text" placeholder="Pesquise por vestibular, instituição ou cidade">
+                        <input type="text" placeholder="Pesquise por faculdade, cidade ou estado">
                         <button class="btn-search">
                             Buscar <i class="fas fa-search"></i>
                         </button>
@@ -53,137 +53,127 @@
         
         <div class="wave"></div>
         
-        <section class="vestibulares-section">
+        <section class="faculdades-section">
             <div class="container">
-                <div class="vestibulares-container">
+                <div class="faculdades-container">
                     <div class="filters">
                         <div class="filters-content">
                             <h3><i class="fas fa-filter"></i> Filtros</h3>
                             
                             <div class="filter-group">
-                                <h4>Instituição</h4>
+                                <h4>Tipo de Instituição</h4>
                                 <div class="filter-options">
-                                    <button><i class="fas fa-university"></i> Universidades Públicas</button>
-                                    <button><i class="fas fa-school"></i> Universidades Privadas</button>
-                                    <button class="active"><i class="fas fa-ellipsis-h"></i> Todas as Instituições</button>
+                                    <button><i class="fas fa-landmark"></i> Pública</button>
+                                    <button><i class="fas fa-money-bill-alt"></i> Privada</button>
+                                    <button class="active"><i class="fas fa-ellipsis-h"></i> Todas</button>
                                 </div>
                             </div>
                             
                             <div class="filter-group">
-                                <h4>Região</h4>
+                                <h4>Localização</h4>
                                 <div class="filter-options">
                                     <label>
-                                        <input type="checkbox"> Sudeste
+                                        <input type="checkbox"> São Paulo - SP
                                     </label>
                                     <label>
-                                        <input type="checkbox"> Sul
+                                        <input type="checkbox"> Rio de Janeiro - RJ
                                     </label>
                                     <label>
-                                        <input type="checkbox"> Nordeste
+                                        <input type="checkbox"> Belo Horizonte - MG
                                     </label>
                                     <label>
-                                        <input type="checkbox"> Norte
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Centro-Oeste
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <h4>Mês do Vestibular</h4>
-                                <div class="filter-options">
-                                    <label>
-                                        <input type="checkbox"> Janeiro
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Junho
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Novembro
+                                        <input type="checkbox"> Porto Alegre - RS
                                     </label>
                                     </div>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <h4>Programas Ofertados</h4>
+                                <div class="filter-options">
+                                    <label>
+                                        <input type="checkbox"> Bacharelado
+                                    </label>
+                                    <label>
+                                        <input type="checkbox"> Licenciatura
+                                    </label>
+                                    <label>
+                                        <input type="checkbox"> Tecnólogo
+                                    </label>
+                                    <label>
+                                        <input type="checkbox"> Pós-Graduação
+                                    </label>
+                                </div>
                             </div>
                             
                             <button class="btn-apply">Aplicar Filtros</button>
                         </div>
                     </div>
                     
-                    <div class="vestibulares-list">
-                        <div class="vestibulares-header">
-                            <h2><i class="fas fa-clipboard-list"></i> Próximos Vestibulares</h2>
-                            <div class="vestibulares-count">1-10 de 50 vestibulares</div>
+                    <div class="faculdades-list">
+                        <div class="faculdades-header">
+                            <h2><i class="fas fa-university"></i> Todas as Faculdades</h2>
+                            <div class="faculdades-count">1-10 de 75 faculdades</div>
                         </div>
                         
-                        <div class="vestibulares-grid">
-                            <div class="vestibular-card">
-                                <div class="vestibular-header">
-                                    <h3>Fuvest 2025</h3>
-                                    <span class="tag instituicao">USP</span>
+                        <div class="faculdades-grid">
+                            <div class="faculdade-card">
+                                <img src="imagens/logo_usp.png" alt="Logo USP" class="faculdade-logo"> <div class="faculdade-info-header">
+                                    <h3>Universidade de São Paulo (USP)</h3>
+                                    <span class="tag publica">Pública</span>
                                 </div>
-                                <p class="periodo">
-                                    <i class="fas fa-calendar-alt"></i> Inscrições: 15/08 a 15/09
-                                </p>
-                                <p class="data">
-                                    <i class="fas fa-calendar-check"></i> Prova 1ª fase: 15/11
-                                </p>
+                                <p class="localizacao"><i class="fas fa-map-marker-alt"></i> São Paulo - SP</p>
                                 <p class="description">
-                                    O vestibular da Fuvest é a principal porta de entrada para a Universidade de São Paulo (USP).
+                                    Considerada a melhor universidade da América Latina, oferece uma vasta gama de cursos de graduação e pós-graduação.
                                 </p>
-                                <div class="vestibular-footer">
-                                    <div class="vestibular-info">
-                                        <span><i class="fas fa-map-marker-alt"></i> São Paulo - SP</span>
+                                <div class="faculdade-footer">
+                                    <div class="faculdade-detalhes">
+                                        <span><i class="fas fa-book-reader"></i> +300 Cursos</span>
+                                        <span><i class="fas fa-users"></i> +90.000 Alunos</span>
                                     </div>
-                                    <a href="#" class="vestibular-link">
-                                        Ver edital <i class="fas fa-chevron-right"></i>
+                                    <a href="#" class="faculdade-link">
+                                        Ver detalhes <i class="fas fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>
                             
-                            <div class="vestibular-card">
-                                <div class="vestibular-header">
-                                    <h3>Enem 2024</h3>
-                                    <span class="tag instituicao">MEC</span>
+                            <div class="faculdade-card">
+                                <img src="imagens/logo_fgv.png" alt="Logo FGV" class="faculdade-logo">
+                                <div class="faculdade-info-header">
+                                    <h3>Fundação Getúlio Vargas (FGV)</h3>
+                                    <span class="tag privada">Privada</span>
                                 </div>
-                                <p class="periodo">
-                                    <i class="fas fa-calendar-alt"></i> Inscrições: 01/05 a 15/05
-                                </p>
-                                <p class="data">
-                                    <i class="fas fa-calendar-check"></i> Provas: 03/11 e 10/11
-                                </p>
+                                <p class="localizacao"><i class="fas fa-map-marker-alt"></i> São Paulo - SP, Rio de Janeiro - RJ</p>
                                 <p class="description">
-                                    O Exame Nacional do Ensino Médio é usado como porta de entrada para diversas universidades federais e programas governamentais.
+                                    Renomada instituição focada em ciências sociais aplicadas, com forte presença nos mercados financeiro e corporativo.
                                 </p>
-                                <div class="vestibular-footer">
-                                    <div class="vestibular-info">
-                                        <span><i class="fas fa-globe"></i> Nacional</span>
+                                <div class="faculdade-footer">
+                                    <div class="faculdade-detalhes">
+                                        <span><i class="fas fa-book-reader"></i> +50 Cursos</span>
+                                        <span><i class="fas fa-users"></i> +15.000 Alunos</span>
                                     </div>
-                                    <a href="#" class="vestibular-link">
-                                        Ver edital <i class="fas fa-chevron-right"></i>
+                                    <a href="#" class="faculdade-link">
+                                        Ver detalhes <i class="fas fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>
 
-                            <div class="vestibular-card">
-                                <div class="vestibular-header">
-                                    <h3>Unicamp 2025</h3>
-                                    <span class="tag instituicao">Unicamp</span>
+                            <div class="faculdade-card">
+                                <img src="imagens/logo_ufmg.png" alt="Logo UFMG" class="faculdade-logo">
+                                <div class="faculdade-info-header">
+                                    <h3>Universidade Federal de Minas Gerais (UFMG)</h3>
+                                    <span class="tag publica">Pública</span>
                                 </div>
-                                <p class="periodo">
-                                    <i class="fas fa-calendar-alt"></i> Inscrições: 29/07 a 30/08
-                                </p>
-                                <p class="data">
-                                    <i class="fas fa-calendar-check"></i> Prova 1ª fase: 20/10
-                                </p>
+                                <p class="localizacao"><i class="fas fa-map-marker-alt"></i> Belo Horizonte - MG</p>
                                 <p class="description">
-                                    O vestibular da Unicamp é um dos mais concorridos do país, conhecido por sua prova dissertativa.
+                                    Uma das maiores e mais importantes universidades federais do Brasil, com excelência em pesquisa e ensino.
                                 </p>
-                                <div class="vestibular-footer">
-                                    <div class="vestibular-info">
-                                        <span><i class="fas fa-map-marker-alt"></i> Campinas - SP</span>
+                                <div class="faculdade-footer">
+                                    <div class="faculdade-detalhes">
+                                        <span><i class="fas fa-book-reader"></i> +90 Cursos</span>
+                                        <span><i class="fas fa-users"></i> +45.000 Alunos</span>
                                     </div>
-                                    <a href="#" class="vestibular-link">
-                                        Ver edital <i class="fas fa-chevron-right"></i>
+                                    <a href="#" class="faculdade-link">
+                                        Ver detalhes <i class="fas fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>
@@ -206,11 +196,11 @@
         
         <section class="vocational-test">
             <div class="container">
-                <h2><i class="fas fa-question-circle"></i> Não sabe qual curso escolher?</h2>
+                <h2><i class="fas fa-question-circle"></i> Não sabe qual curso ou faculdade escolher?</h2>
                 
                 <div class="test-container">
                     <h3>Faça nosso Teste Vocacional!</h3>
-                    <p>Responda algumas perguntas simples e descubra quais cursos combinam mais com seu perfil e interesses.</p>
+                    <p>Responda algumas perguntas simples e descubra quais caminhos combinam mais com seu perfil e interesses.</p>
                     <button class="btn-test">
                         Começar Teste <i class="fas fa-arrow-right"></i>
                     </button>
