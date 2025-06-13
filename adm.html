@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administração</title>
+ </head>
+ <body>
+    <!-- Dashboard de Gerenciamento de Usuários -->
+    <div class="dashboard-container" id="dashboard" style="display: none;">
+        <div class="dashboard-header">
+            <h1><i class='bx bx-user-circle'></i> Gerenciar Usuários</h1>
+            <div class="header-actions">
+                <span id="welcome-user" class="welcome-text"></span>
+                <button class="btn-logout" onclick="handleLogout()">
+                    <i class='bx bx-log-out'></i> Sair
+                </button>
+                <button class="btn-back" onclick="hideDashboard()">
+                    <i class='bx bx-arrow-back'></i> Voltar ao Login
+                </button>
+            </div>
+        </div>
+        
+        <div class="dashboard-content">
+            <div id="users-alert"></div>
+            
+            <div class="dashboard-actions">
+                <button class="btn-action" onclick="loadUsers()">
+                    <i class='bx bx-refresh'></i> Atualizar Lista
+                </button>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Buscar usuário...">
+                    <i class='bx bx-search'></i>
+                </div>
+            </div>
+
+            <div id="users-loading" class="loading" style="display: none;">
+                <i class='bx bx-loader-alt bx-spin'></i>
+                <p>Carregando usuários...</p>
+            </div>
+
+            <div id="users-list" class="users-grid"></div>
+            <div id="users-pagination" class="pagination"></div>
+        </div>
+    </div>
+
+    <!-- Modal para Editar Usuário -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class='bx bx-edit'></i> Editar Usuário</h2>
+                <button class="modal-close" onclick="closeEditModal()">&times;</button>
+            </div>
+            <div id="edit-alert"></div>
+            <form id="edit-form">
+                <input type="hidden" id="edit-user-id">
+                <div class="input-box">
+                    <input type="text" id="edit-username" placeholder="Nome de Usuário" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="edit-email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="edit-password" placeholder="Nova Senha (opcional)">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn" id="edit-submit-btn">
+                    <i class='bx bx-check'></i> Atualizar
+                </button>
+            </form>
+        </div>
+    </div>
+
+ </body>
+ </html>
+ 

@@ -20,6 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const editPassword = document.getElementById('edit-password');
     const editAlert = document.getElementById('edit-alert');
 
+    const regiserBtn = document.querySelector('.register-btn');
+    const loginBtn = document.querySelector('.login-btn');
+
+    regiserBtn.addEventListener('click', () => {
+    container.classList.add('active');
+    });
+
+    loginBtn.addEventListener('click', () => {
+    container.classList.remove('active');
+    });
+
     let currentPage = 1;
     let currentSearchTerm = '';
 
