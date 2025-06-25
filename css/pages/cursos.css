@@ -190,7 +190,7 @@ header {
 }
 
 /* Destaque no futuro */
-.hero h1 span { 
+.hero h1 strong { 
     font-style: normal;
     color: var(--accent-color);
 }

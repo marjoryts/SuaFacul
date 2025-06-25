@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --primary-color: #5A189A;
+    --primary-dark: #30045c;
+    --primary-light: #9D4EDD;
+
+    --second-color: #ffffff;
+    --accent-color: #FF9100;
+    --accent-dark: #E65100;
+    --light-bg: #FCFBFF;
+
+    --text-color: #404040;
+    --text-light: #7A7A7A;
+
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 20px;
+
+    --transition: all 0.3s ease;
+}
+/* RESET E BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* SCROLLBAR PERSONALIZADA */
+body::-webkit-scrollbar {
+    width: 0.8em;
+}
+body::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--light-bg);
+}
+
+/* HEADER FIXO */
+header {
+    background: var(--second-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* CONTEÚDO DO HEADER */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar a {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    padding: 4px 11px;
+    margin: 0 5px;
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    color: var(--primary-dark);
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* BOTÃO ENTRAR */
+.btn-login {
+    padding: 0.7rem 1.4rem;
+    background: var(--accent-color);
+    color: var(--second-color);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
+.hero {
+
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--second-color);     
+    text-align: center;
+    padding: 4rem 1rem;    
+    position: relative;
+    overflow: hidden;
+}
+
+/* Título principal */
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+/* Destaque no futuro */
+.hero h1 em {
+    font-style: normal;
+    color: var(--accent-color); 
+}
+
+/* 9. CONTAINER PRINCIPAL */
+.container {
+    background: var(--second-color); 
+    width: min(90%, 55rem);
+    margin: 2rem auto;              
+    border-radius: var(--radius-md); 
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);  
+}
+
+/* FORMULÁRIO DE PESQUISA */
+.container-input {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.5rem;                    /* essencial pra não ficar torto*/
+}
+
+/* Cards do formulário */
+.card {
+    padding: 1rem;                /* deixa tudo em uma linha */
+    margin-top: 1rem;
+}
+
+/* Rótulos dos campos */
+.card label {
+    display: flex;                 /* faz ocupar linha inteira */
+    color: var(--primary-color);    
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    position: left;
+}
+
+/* Campos de texto */
+.text-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: var(--transition); /*transição fofinha*/
+}
+
+/* Efeito do campo de texto */
+.text-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(90, 24, 154, 0.2);
+}
+
+/*FILTROS */
+.filtros, .filtros1 {
+    display: flex;
+    flex-wrap: wrap;                /*quebra de linha para o botão */
+    gap: 1rem;                     
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.filtros {
+    justify-content: space-between; /* espaço entre checkboxes e botão */
+}
+
+/* Estilo dos rótulos dos filtros */
+.filtros label, .filtros1 label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;                   /*  espaço das caixinha com o texto */
+    cursor: pointer;              
+    font-size: 0.9rem;
+}
+
+/* 12. BOTÃO BUSCAR */
+.btn-buscar {
+    background: var(--accent-color); 
+    color: var(--second-color);     
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    margin-left: 9.2rem;
+}
+
+/* Efeito hover do botão */
+.btn-buscar:hover {
+    background: var(--accent-dark);  
+    transform: translateY(-2px);     /* Levanta levemente */
+    box-shadow: var(--shadow-md);    
+}
+
+footer {
+    background-color: var(--primary-dark);
+    color: var(--second-color);
+    padding: 3rem 0;
+}
+ 
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0 0 3rem;
+}
+ 
+.footer-about h3,
+.footer-links h4,
+.footer-help h4,
+.footer-social h4 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+ 
+.footer-about p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+ 
+.footer-links ul,
+.footer-help ul {
+    list-style: none;
+}
+ 
+.footer-links li,
+.footer-help li {
+    margin-bottom: 0.7rem;
+}
+ 
+.footer-links a,
+.footer-help a {
+    color: var(--second-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+ 
+.footer-links a:hover,
+.footer-help a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+ 
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+ 
+.social-icons a {
+    color: var(--second-color);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+ 
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+ 
+.footer-copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+ 
+/* responsividade*/
+ 
+/* Seção do Media Query para o rodapé */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Colunas empilhadas */
+        text-align: center;
+    }
+ 
+    .footer-links ul,
+    .footer-help ul {
+        padding: 0;
+    }
+ 
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+}

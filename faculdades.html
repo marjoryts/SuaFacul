@@ -9,7 +9,6 @@
 
 <body>
     <header>
-        <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <img src="imagens/suafacul_icon.png" alt="Logo SuaFacul" width="80" height="60">
@@ -26,191 +25,42 @@
                         Entrar
                     </button>
                 </nav>
-                
-                <button class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
-        </div>
     </header>
 
     <main>
-        <section class="hero">
+         <section class="hero">
+            <h1>Encontre a sua <em><strong>faculdade</strong></em> ideal!</h1>
             <div class="container">
-                <div class="hero-content">
-                    <h1>Encontre a <span>faculdade ideal</span> para o seu futuro</h1>
-                    <p>Explore as melhores universidades e faculdades do Brasil. Compare instituições, descubra programas de estudo e comece sua jornada acadêmica.</p>
-                    
-                    <div class="search-box">
-                        <input type="text" placeholder="Pesquise por faculdade, cidade ou estado">
-                        <button class="btn-search">
-                            Buscar <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <div class="wave"></div>
-        
-        <section class="faculdades-section">
-            <div class="container">
-                <div class="faculdades-container">
-                    <div class="filters">
-                        <div class="filters-content">
-                            <h3><i class="fas fa-filter"></i> Filtros</h3>
-                            
-                            <div class="filter-group">
-                                <h4>Tipo de Instituição</h4>
-                                <div class="filter-options">
-                                    <button><i class="fas fa-landmark"></i> Pública</button>
-                                    <button><i class="fas fa-money-bill-alt"></i> Privada</button>
-                                    <button class="active"><i class="fas fa-ellipsis-h"></i> Todas</button>
-                                </div>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <h4>Localização</h4>
-                                <div class="filter-options">
-                                    <label>
-                                        <input type="checkbox"> São Paulo - SP
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Rio de Janeiro - RJ
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Belo Horizonte - MG
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Porto Alegre - RS
-                                    </label>
-                                    </div>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <h4>Programas Ofertados</h4>
-                                <div class="filter-options">
-                                    <label>
-                                        <input type="checkbox"> Bacharelado
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Licenciatura
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Tecnólogo
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Pós-Graduação
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <button class="btn-apply">Aplicar Filtros</button>
+                <div class="container-input">
+                    <div class="card">
+                        <label for="curso"> Qual curso deseja estudar?</label>
+                        <input type="text" class="text-input" placeholder="Digite o curso">
+                        <div class="filtros1">
+                            <label><input type="checkbox"> Presencial</label>
+                            <label><input type="checkbox"> Híbrido</label>
+                            <label><input type="checkbox"> EaD</label>
                         </div>
                     </div>
-                    
-                    <div class="faculdades-list">
-                        <div class="faculdades-header">
-                            <h2><i class="fas fa-university"></i> Todas as Faculdades</h2>
-                            <div class="faculdades-count">1-10 de 75 faculdades</div>
+                    <div class="card">
+                        <label for="faculdade"> Em qual faculdade?</label>
+                        <input type="text" class="text-input" placeholder="Digite a faculdade">
+                        <div class="filtros">
+                            <label><input type="radio">Pública</label>
+                            <label><input type="radio">Particular</label>
                         </div>
-                        
-                        <div class="faculdades-grid">
-                            <div class="faculdade-card">
-                                <img src="imagens/logo_usp.png" alt="Logo USP" class="faculdade-logo"> <div class="faculdade-info-header">
-                                    <h3>Universidade de São Paulo (USP)</h3>
-                                    <span class="tag publica">Pública</span>
-                                </div>
-                                <p class="localizacao"><i class="fas fa-map-marker-alt"></i> São Paulo - SP</p>
-                                <p class="description">
-                                    Considerada a melhor universidade da América Latina, oferece uma vasta gama de cursos de graduação e pós-graduação.
-                                </p>
-                                <div class="faculdade-footer">
-                                    <div class="faculdade-detalhes">
-                                        <span><i class="fas fa-book-reader"></i> +300 Cursos</span>
-                                        <span><i class="fas fa-users"></i> +90.000 Alunos</span>
-                                    </div>
-                                    <a href="#" class="faculdade-link">
-                                        Ver detalhes <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="faculdade-card">
-                                <img src="imagens/logo_fgv.png" alt="Logo FGV" class="faculdade-logo">
-                                <div class="faculdade-info-header">
-                                    <h3>Fundação Getúlio Vargas (FGV)</h3>
-                                    <span class="tag privada">Privada</span>
-                                </div>
-                                <p class="localizacao"><i class="fas fa-map-marker-alt"></i> São Paulo - SP, Rio de Janeiro - RJ</p>
-                                <p class="description">
-                                    Renomada instituição focada em ciências sociais aplicadas, com forte presença nos mercados financeiro e corporativo.
-                                </p>
-                                <div class="faculdade-footer">
-                                    <div class="faculdade-detalhes">
-                                        <span><i class="fas fa-book-reader"></i> +50 Cursos</span>
-                                        <span><i class="fas fa-users"></i> +15.000 Alunos</span>
-                                    </div>
-                                    <a href="#" class="faculdade-link">
-                                        Ver detalhes <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="faculdade-card">
-                                <img src="imagens/logo_ufmg.png" alt="Logo UFMG" class="faculdade-logo">
-                                <div class="faculdade-info-header">
-                                    <h3>Universidade Federal de Minas Gerais (UFMG)</h3>
-                                    <span class="tag publica">Pública</span>
-                                </div>
-                                <p class="localizacao"><i class="fas fa-map-marker-alt"></i> Belo Horizonte - MG</p>
-                                <p class="description">
-                                    Uma das maiores e mais importantes universidades federais do Brasil, com excelência em pesquisa e ensino.
-                                </p>
-                                <div class="faculdade-footer">
-                                    <div class="faculdade-detalhes">
-                                        <span><i class="fas fa-book-reader"></i> +90 Cursos</span>
-                                        <span><i class="fas fa-users"></i> +45.000 Alunos</span>
-                                    </div>
-                                    <a href="#" class="faculdade-link">
-                                        Ver detalhes <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            </div>
-                        
-                        <div class="pagination">
-                            <a href="#"><i class="fas fa-chevron-left"></i></a>
-                            <a href="#" class="active">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="card">
+                        <label for="cidade">Em que cidade quer estudar?</label>
+                        <input type="text" class="text-input" placeholder="Digite a cidade">
+                        <div class="filtros">
+                            <button class="btn-buscar">Buscar</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="vocational-test">
-            <div class="container">
-                <h2><i class="fas fa-question-circle"></i> Não sabe qual curso ou faculdade escolher?</h2>
-                
-                <div class="test-container">
-                    <h3>Faça nosso Teste Vocacional!</h3>
-                    <p>Responda algumas perguntas simples e descubra quais caminhos combinam mais com seu perfil e interesses.</p>
-                    <button class="btn-test">
-                        Começar Teste <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-    </main>
     
     <footer>
-        <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
                     <h3>SuaFacul</h3>
