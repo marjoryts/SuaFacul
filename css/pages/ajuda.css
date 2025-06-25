@@ -1,0 +1,198 @@
+:root {
+    --primary-color: #5A189A;
+    --primary-dark: #30045c;
+    --primary-light: #9D4EDD;
+
+    --second-color: #ffffff;
+    --accent-color: #FF9100;
+    --accent-dark: #E65100;
+    --light-bg: #FCFBFF;
+
+    --text-color: #404040;
+    --text-light: #7A7A7A;
+
+    /* Sombras efeitos visuais */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    /*borda */
+    --radius-sm: 5px; /* (botões) */
+    --radius-md: 10px; /* (cards) */
+    --radius-lg: 20px; /* (containers) */
+
+    
+    --transition: all 0.3s ease;
+}
+
+body::-webkit-scrollbar {
+    width: 0.8em; 
+}
+body::-webkit-scrollbar-track {
+    background: var(--light-bg); 
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color); 
+    border-radius: 10px;
+    border: 2px solid var(--light-bg);
+}
+
+.navbar a {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition);
+    padding: 4px 0; 
+    margin: 0 5px; 
+    display: inline-block;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-login { 
+    padding: 0.7rem 1.4rem;
+    background: var(--accent-color);
+    color: var(--second-color);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 1rem; 
+    box-shadow:  0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--accent-dark);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    background: linear-gradient(135deg,  var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--second-color);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content span {
+    color: var(--accent-color);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--second-color);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: var(--text-color);
+}
+
+.search-box .btn-search  {
+    background: var(--primary-color);
+    color: var(--second-color);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-box .btn-search:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.search-box input:focus {
+    border-color: var(--primary-color);
+}
+
+
+.help-content-section {
+    padding: 60px 20px;
+}
+
+.help-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.faq-section {
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 30px;
+    transition: var(--transition);
+}
+
+.faq-section:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.faq-section h2 {
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.faq-section i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.faq-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.faq-list li {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: var(--text-light);
+}
