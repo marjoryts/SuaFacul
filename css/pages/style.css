@@ -3,30 +3,33 @@
 /* 2. VARIÁVEIS GLOBAIS (cores, sombras, bordas) */
 :root {
     /* Cores principais (paleta roxa) */
-    --primary-color: #5A189A;    
-    --primary-dark: #30045c;     
-    --primary-light: #9D4EDD;    
-    
+    --primary-color: #5A189A;
+    --primary-dark: #30045c;
+    --primary-light: #9D4EDD;
+
     /* Cores neutras e de destaque */
-    --second-color: #ffffff;     
-    --accent-color: #FF9100;     
-    --accent-dark: #E65100;      
-    --light-bg: #FCFBFF;         
-    
+    --second-color: #ffffff;
+    --accent-color: #FF9100;
+    --accent-dark: #E65100;
+    --light-bg: #FCFBFF;
+
     /* Cores de texto */
-    --text-color: #404040;       
-    --text-light: #7A7A7A;       
-    
+    --text-color: #404040;
+    --text-light: #7A7A7A;
+
     /* Sombras efeitos visuais */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);  
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);  
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1); 
-    
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
     /*borda */
-    --radius-sm: 5px;   /* (botões) */
-    --radius-md: 10px;  /*  (cards) */
-    --radius-lg: 20px;  /*  (containers) */
-    
+    --radius-sm: 5px;
+    /* (botões) */
+    --radius-md: 10px;
+    /*  (cards) */
+    --radius-lg: 20px;
+    /*  (containers) */
+
     /* Transição efeitos hover */
     --transition: all 0.3s ease;
 }
@@ -36,7 +39,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Faz padding e border fazerem parte da largura */
+    box-sizing: border-box;
+    /* Faz padding e border fazerem parte da largura */
 }
 
 /* 4. ESTILOS GERAIS DO BODY */
@@ -50,38 +54,48 @@ body {
 
 /* 5. SCROLLBAR PERSONALIZADA */
 body::-webkit-scrollbar {
-    width: 0.8em; /* Largurar */
+    width: 0.8em;
+    /* Largurar */
 }
+
 body::-webkit-scrollbar-track {
-    background: var(--light-bg); /* cor do fundo da scrollbar */
+    background: var(--light-bg);
+    /* cor do fundo da scrollbar */
 }
+
 body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color); /* cor do scroll */
-    border-radius: 10px;                  
-    border: 2px solid var(--light-bg);     
+    background-color: var(--primary-color);
+    /* cor do scroll */
+    border-radius: 10px;
+    border: 2px solid var(--light-bg);
 }
 
 /* HEADER E NAVBAR */
 header {
-    background: var(--second-color); 
-    box-shadow: var(--shadow-sm);    
-    position: sticky;                /* fixa no topo */
+    background: var(--second-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    /* fixa no topo */
     top: 0;
-    z-index: 100; /* pra ficar em cima mesmo que mexa no scrollbar */
+    z-index: 100;
+    /* pra ficar em cima mesmo que mexa no scrollbar */
 }
 
 /* Container da navbar */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Espaço entre logo e links */
+    justify-content: space-between;
+    /* Espaço entre logo e links */
     align-items: center;
-    padding: 1rem 3rem;            /* Espaçamento interno */
+    padding: 1rem 3rem;
+    /* Espaçamento interno */
 }
 
 /* Container dos links de navegação */
-.nav{
+.nav {
     display: flex;
-    gap: 2rem;             /* Espaço entre links */
+    gap: 2rem;
+    /* Espaço entre links */
 }
 
 /* Estilo dos links */
@@ -89,10 +103,12 @@ header {
     font-weight: 600;
     color: var(--primary-color);
     text-decoration: none;
-    position: relative;            
-    transition: var(--transition); 
-    padding: 4px 11px !important; /* sem isso não vai o espaço */
-    margin: 0 5px !important;      /* espaçamento entre os links!!! */
+    position: relative;
+    transition: var(--transition);
+    padding: 4px 11px !important;
+    /* sem isso não vai o espaço */
+    margin: 0 5px !important;
+    /* espaçamento entre os links!!! */
     display: inline-block;
     position: relative;
 }
@@ -104,14 +120,17 @@ header {
 
 /* Efeito de sublinhado animado */
 .navbar a::after {
-    content: '';                   
+    content: '';
     position: absolute;
-    bottom: -2px;                  /* abaixo */
+    bottom: -2px;
+    /* abaixo */
     left: 0;
-    width: 0;                      /* Começa invisível */
+    width: 0;
+    /* Começa invisível */
     height: 2px;
     background: var(--primary-color);
-    transition: var(--transition); /* Anima a largura */
+    transition: var(--transition);
+    /* Anima a largura */
 }
 
 /* Quando passar o mouse, expande o sublinhado */
@@ -122,31 +141,31 @@ header {
 /* 7. BOTÃO ENTRAR */
 .btn-entrar {
     padding: 0.7rem 1.4rem;
-    background: var(--accent-color); 
-    color: var(--second-color);      
+    background: var(--accent-color);
+    color: var(--second-color);
     border: none;
-    border-radius: var(--radius-sm); 
+    border-radius: var(--radius-sm);
     font-weight: 600;
     cursor: pointer;
     margin-left: 9rem;
-    box-shadow: var(--shadow-sm);    
-    transition: var(--transition);  
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
 }
 
 /* Efeito hover do botão */
 .btn-entrar:hover {
-    background: var(--accent-dark);  
-    transform: translateY(-2px);    
-    box-shadow: var(--shadow-md);  
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* 8. SEÇÃO HERO (PRINCIPAL) */
 .hero {
 
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: var(--second-color);     
+    color: var(--second-color);
     text-align: center;
-    padding: 4rem 1rem;    
+    padding: 4rem 1rem;
     position: relative;
     overflow: hidden;
 }
@@ -162,36 +181,39 @@ header {
 /* Destaque no futuro */
 .hero h1 em {
     font-style: normal;
-    color: var(--accent-color); 
+    color: var(--accent-color);
 }
 
 /* 9. CONTAINER PRINCIPAL */
 .container {
-    background: var(--second-color); 
+    background: var(--second-color);
     width: min(90%, 55rem);
-    margin: 2rem auto;              
-    border-radius: var(--radius-md); 
+    margin: 2rem auto;
+    border-radius: var(--radius-md);
     padding: 1.5rem;
-    box-shadow: var(--shadow-lg);  
+    box-shadow: var(--shadow-lg);
 }
 
 /* FORMULÁRIO DE PESQUISA */
 .container-input {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 0.5rem;                    /* essencial pra não ficar torto*/
+    gap: 0.5rem;
+    /* essencial pra não ficar torto*/
 }
 
 /* Cards do formulário */
 .card {
-    padding: 1rem;                /* deixa tudo em uma linha */
+    padding: 1rem;
+    /* deixa tudo em uma linha */
     margin-top: 1rem;
 }
 
 /* Rótulos dos campos */
 .card label {
-    display: flex;                 /* faz ocupar linha inteira */
-    color: var(--primary-color);    
+    display: flex;
+    /* faz ocupar linha inteira */
+    color: var(--primary-color);
     font-weight: 500;
     margin-bottom: 0.5rem;
     font-size: 1rem;
@@ -205,7 +227,8 @@ header {
     border: 1px solid #ddd;
     border-radius: var(--radius-sm);
     font-size: 1rem;
-    transition: var(--transition); /*transição fofinha*/
+    transition: var(--transition);
+    /*transição fofinha*/
 }
 
 /* Efeito do campo de texto */
@@ -216,31 +239,36 @@ header {
 }
 
 /*FILTROS */
-.filtros, .filtros1 {
+.filtros,
+.filtros1 {
     display: flex;
-    flex-wrap: wrap;                /*quebra de linha para o botão */
-    gap: 1rem;                     
+    flex-wrap: wrap;
+    /*quebra de linha para o botão */
+    gap: 1rem;
     align-items: center;
     margin-top: 1rem;
 }
 
 .filtros {
-    justify-content: space-between; /* espaço entre checkboxes e botão */
+    justify-content: space-between;
+    /* espaço entre checkboxes e botão */
 }
 
 /* Estilo dos rótulos dos filtros */
-.filtros label, .filtros1 label {
+.filtros label,
+.filtros1 label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;                   /*  espaço das caixinha com o texto */
-    cursor: pointer;              
+    gap: 0.5rem;
+    /*  espaço das caixinha com o texto */
+    cursor: pointer;
     font-size: 0.9rem;
 }
 
 /* 12. BOTÃO BUSCAR */
 .btn-buscar {
-    background: var(--accent-color); 
-    color: var(--second-color);     
+    background: var(--accent-color);
+    color: var(--second-color);
     border: none;
     padding: 0.6rem 1.5rem;
     border-radius: var(--radius-sm);
@@ -253,20 +281,21 @@ header {
 
 /* Efeito hover do botão */
 .btn-buscar:hover {
-    background: var(--accent-dark);  
-    transform: translateY(-2px);     /* Levanta levemente */
-    box-shadow: var(--shadow-md);    
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    /* Levanta levemente */
+    box-shadow: var(--shadow-md);
 }
 
 /* faculdades em destaques! */
 
-.faculdades{
+.faculdades {
     padding: 4rem 1rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.faculdades h2{
+.faculdades h2 {
     font-size: 2rem;
     color: var(--primary-dark);
     margin-bottom: 2rem;
@@ -280,8 +309,8 @@ header {
     display: block;
     width: 80px;
     height: 4px;
-    background: var(--accent-color); 
-    margin: 0.5rem auto;            
+    background: var(--accent-color);
+    margin: 0.5rem auto;
     border-radius: 2px;
 }
 
@@ -307,14 +336,14 @@ header {
 }
 
 .faculdade {
-    background: var(--second-color); 
-    border-radius: var(--radius-lg); 
+    background: var(--second-color);
+    border-radius: var(--radius-lg);
     padding: 1.5rem;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    border: 2px solid var(--primary-light); 
+    border: 2px solid var(--primary-light);
 }
 
 
@@ -340,6 +369,7 @@ header {
     text-decoration: none;
     transition: var(--transition);
 }
+
 .faculdade a:hover {
     color: var(--primary-dark);
     text-decoration: underline;
@@ -352,15 +382,18 @@ header {
     gap: 1.5rem;
     margin-top: 2rem;
 }
-.faculdade img{
+
+.faculdade img {
     width: 100%;
     display: block;
 }
+
 /* VESTIBULARES */
 .vestibulares {
     padding: 4rem 1rem;
     max-width: 1400px;
-    margin: 0 auto;                 /* Centraliza */
+    margin: 0 auto;
+    /* Centraliza */
 }
 
 /* Título da seção */
@@ -378,8 +411,9 @@ header {
     display: block;
     width: 80px;
     height: 4px;
-    background: var(--accent-color); 
-    margin: 0.5rem auto;            /* Centraliza */
+    background: var(--accent-color);
+    margin: 0.5rem auto;
+    /* Centraliza */
     border-radius: 2px;
 }
 
@@ -393,20 +427,22 @@ header {
 
 /* Cards de vestibular */
 .vestibular {
-    background: var(--second-color); 
-    border-radius: var(--radius-lg); 
+    background: var(--second-color);
+    border-radius: var(--radius-lg);
     padding: 1.5rem;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    border: 2px solid var(--primary-light); 
+    border: 2px solid var(--primary-light);
 }
 
 /* Efeito hover nos cards */
 .vestibular:hover {
-    transform: translateY(-5px);    /* Levanta o card */
-    box-shadow: var(--shadow-lg);   /* Aumenta a sombra */
+    transform: translateY(-5px);
+    /* Levanta o card */
+    box-shadow: var(--shadow-lg);
+    /* Aumenta a sombra */
 }
 
 /* Título do vestibular */
@@ -428,10 +464,10 @@ header {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--accent-color); 
-    color: var(--second-color);      
+    background: var(--accent-color);
+    color: var(--second-color);
     padding: 0.3rem 0.8rem;
-    border-radius: 20px;           
+    border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -457,7 +493,7 @@ header {
     padding: 4rem 1rem;
     max-width: 1400px;
     margin: 2rem auto;
-    background: var(--second-color); 
+    background: var(--second-color);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     position: relative;
@@ -505,19 +541,20 @@ header {
 .pesquisa-container input {
     width: 100%;
     padding: 0.8rem 1.2rem;
-    border: 2px solid var(--primary-light); 
+    border: 2px solid var(--primary-light);
     border-radius: var(--radius-lg);
     font-size: 1rem;
     transition: var(--transition);
-    padding-right: 40px;           /* espaço para o ícone */
+    padding-right: 40px;
+    /* espaço para o ícone */
     background-color: var(--light-bg);
 }
 
 /* Eeito quando o campo está em foco */
 .pesquisa-container input:focus {
     outline: none;
-    border-color: var(--accent-color); 
-    box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.2); 
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.2);
 }
 
 /* ícone de lupa (usando emoji) */
@@ -540,7 +577,7 @@ header {
 
 /* Itens da lista de cursos */
 .curso-item {
-    background: var(--light-bg);    
+    background: var(--light-bg);
     padding: 1.5rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
@@ -552,15 +589,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80px;             
+    min-height: 80px;
 }
 
 .curso-item:hover {
-    background: var(--primary-color); 
-    color: var(--second-color);      
-    transform: translateY(-5px);     
+    background: var(--primary-color);
+    color: var(--second-color);
+    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(90, 24, 154, 0.2);
-    border-color: transparent;       
+    border-color: transparent;
 }
 
 footer {
@@ -568,7 +605,7 @@ footer {
     color: var(--second-color);
     padding: 3rem 0;
 }
- 
+
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -576,7 +613,7 @@ footer {
     margin-bottom: 2rem;
     padding: 1rem 0 0 3rem;
 }
- 
+
 .footer-about h3,
 .footer-links h4,
 .footer-help h4,
@@ -585,23 +622,23 @@ footer {
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
- 
+
 .footer-about p {
     font-size: 0.95rem;
     line-height: 1.8;
     opacity: 0.8;
 }
- 
+
 .footer-links ul,
 .footer-help ul {
     list-style: none;
 }
- 
+
 .footer-links li,
 .footer-help li {
     margin-bottom: 0.7rem;
 }
- 
+
 .footer-links a,
 .footer-help a {
     color: var(--second-color);
@@ -610,29 +647,29 @@ footer {
     opacity: 0.8;
     transition: var(--transition);
 }
- 
+
 .footer-links a:hover,
 .footer-help a:hover {
     opacity: 1;
     color: var(--accent-color);
 }
- 
+
 .social-icons {
     display: flex;
     gap: 1rem;
 }
- 
+
 .social-icons a {
     color: var(--second-color);
     font-size: 1.5rem;
     transition: var(--transition);
 }
- 
+
 .social-icons a:hover {
     color: var(--accent-color);
     transform: translateY(-3px);
 }
- 
+
 .footer-copyright {
     text-align: center;
     padding-top: 1.5rem;
@@ -640,21 +677,22 @@ footer {
     font-size: 0.9rem;
     opacity: 0.7;
 }
- 
+
 /* responsividade*/
- 
+
 /* Seção do Media Query para o rodapé */
 @media (max-width: 768px) {
     .footer-grid {
-        grid-template-columns: 1fr; /* Colunas empilhadas */
+        grid-template-columns: 1fr;
+        /* Colunas empilhadas */
         text-align: center;
     }
- 
+
     .footer-links ul,
     .footer-help ul {
         padding: 0;
     }
- 
+
     .footer-social .social-icons {
         justify-content: center;
     }
