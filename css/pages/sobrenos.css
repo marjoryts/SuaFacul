@@ -56,7 +56,7 @@ header {
     box-shadow: var(--shadow-sm);
     position: sticky; /* fixa no topo */
     top: 0;
-    z-index: 100; /* pra ficar em cima mesmo que mexa no scrollbar */
+    z-index: 100; 
 }
 
 .header-content {
