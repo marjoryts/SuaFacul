@@ -1,23 +1,14 @@
-// script.js
-
-// Garante que o script só execute depois que o DOM estiver totalmente carregado
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Seletores de Elementos HTML ---
-    // Seletores para os elementos principais da UI de login/registro
     const container = document.getElementById('container');
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     const loginAlert = document.getElementById('login-alert');
     const registerAlert = document.getElementById('register-alert');
 
-    // Seletores para os botões de alternância
-    // Usamos querySelector para selecionar os botões de classe 'register-btn' e 'login-btn'
-    // que estão dentro dos painéis de transição.
     const regiserBtn = document.querySelector('.toggle-left .register-btn');
     const loginBtn = document.querySelector('.toggle-right .login-btn');
 
-    // Seletores para os elementos do dashboard (se existirem no HTML)
-    // É importante que esses IDs existam no seu HTML quando o dashboard for visível.
+  
     const dashboard = document.getElementById('dashboard');
     const welcomeUser = document.getElementById('welcome-user');
     const usersList = document.getElementById('users-list');
@@ -26,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const usersPagination = document.getElementById('users-pagination');
 
-    // Seletores para o modal de edição (se existirem no HTML)
+    
     const editModal = document.getElementById('edit-modal');
     const editForm = document.getElementById('edit-form');
     const editUserId = document.getElementById('edit-user-id');
@@ -35,69 +26,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const editPassword = document.getElementById('edit-password');
     const editAlert = document.getElementById('edit-alert');
 
-    // Seletores para o modal de confirmação customizado (NOVO - para substituir o confirm())
+    
     const customConfirmModal = document.getElementById('custom-confirm-modal');
     const confirmMessage = document.getElementById('confirm-message');
     const confirmYesBtn = document.getElementById('confirm-yes-btn');
     const confirmNoBtn = document.getElementById('confirm-no-btn');
 
-    // --- Variáveis de Estado ---
-    let currentPage = 1; // Página atual para paginação de usuários
-    let currentSearchTerm = ''; // Termo de busca atual
-    let deleteUserId = null; // Armazena o ID do usuário a ser excluído para o modal
+    
+    let currentPage = 1; 
+    let currentSearchTerm = ''; 
+    let deleteUserId = null; 
 
-    // --- Event Listeners para Alternância de Formulário ---
-    // Estes listeners são os responsáveis por alternar a classe 'active'
-    // e já estavam funcionando corretamente. Apenas removemos o onclick do HTML
-    // para evitar conflitos.
-    if (regiserBtn) { // Verifica se o botão existe antes de adicionar o listener
+    if (regiserBtn) { 
         regiserBtn.addEventListener('click', () => {
-            container.classList.add('active'); // Adiciona a classe 'active' para exibir o formulário de registro
-            loginAlert.textContent = ''; // Limpa alertas do formulário de login
-            registerAlert.textContent = ''; // Limpa alertas do formulário de registro
-            loginForm.reset(); // Reseta o formulário de login
-            registerForm.reset(); // Reseta o formulário de registro
+            container.classList.add('active'); 
+            loginAlert.textContent = ''; 
+            registerAlert.textContent = '';
+            loginForm.reset();
+            registerForm.reset();
         });
     }
 
-    if (loginBtn) { // Verifica se o botão existe antes de adicionar o listener
+    if (loginBtn) { 
         loginBtn.addEventListener('click', () => {
-            container.classList.remove('active'); // Remove a classe 'active' para exibir o formulário de login
-            loginAlert.textContent = ''; // Limpa alertas do formulário de login
-            registerAlert.textContent = ''; // Limpa alertas do formulário de registro
-            loginForm.reset(); // Reseta o formulário de login
-            registerForm.reset(); // Reseta o formulário de registro
+            container.classList.remove('active'); 
+            loginAlert.textContent = ''; 
+            registerAlert.textContent = ''; 
+            loginForm.reset(); 
+            registerForm.reset(); 
         });
     }
 
-    // A função window.toggleForm foi removida pois os listeners acima já lidam com a alternância
-    // e os botões no HTML chamavam essa função em conflito.
-
-    // --- Funções de Alerta ---
-    // Exibe uma mensagem de alerta temporária em um elemento específico
     const showAlert = (element, message, type) => {
         if (!element) {
             console.warn(`Elemento de alerta não encontrado: ${element}`);
-            return; // Garante que o elemento existe
+            return; 
         }
         element.textContent = message;
-        element.className = `alert ${type}`; // Adiciona classes de estilo (success, error, info)
-        element.style.display = 'block'; // Torna o alerta visível
+        element.className = `alert ${type}`; 
+        element.style.display = 'block';
         setTimeout(() => {
-            element.style.display = 'none'; // Esconde o alerta após 5 segundos
-            element.textContent = ''; // Limpa o texto
+            element.style.display = 'none'; 
+            element.textContent = ''; 
         }, 5000);
     };
 
     // --- Lógica de Registro (Create) ---
     if (registerForm) {
         registerForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Previne o comportamento padrão de envio do formulário
+            e.preventDefault(); 
             const username = document.getElementById('register-username').value;
             const email = document.getElementById('register-email').value;
             const password = document.getElementById('register-password').value;
 
-            // Validação básica (pode ser expandida)
+            
             if (!username || !email || !password) {
                 showAlert(registerAlert, 'Por favor, preencha todos os campos.', 'error');
                 return;
@@ -114,12 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     body: formData
                 });
-                const data = await response.json(); // Analisa a resposta JSON
+                const data = await response.json(); 
 
                 if (data.success) {
                     showAlert(registerAlert, data.message, 'success');
-                    registerForm.reset(); // Reseta o formulário após o sucesso
-                    container.classList.remove('active'); // Volta para a tela de login
+                    registerForm.reset(); 
+                    container.classList.remove('active'); 
                 } else {
                     showAlert(registerAlert, data.message, 'error');
                 }
@@ -133,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica de Login (Read - Acesso) ---
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Previne o comportamento padrão de envio do formulário
+            e.preventDefault();
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
 
@@ -142,17 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('password', password);
 
             try {
-                // Requisição AJAX para o backend de login
                 const response = await fetch('backend/login_usuario.php', {
                     method: 'POST',
                     body: formData
                 });
-                const data = await response.json(); // Analisa a resposta JSON
+                const data = await response.json(); 
 
                 if (data.success) {
                     showAlert(loginAlert, data.message, 'success');
-                    loginForm.reset(); // Reseta o formulário após o login
-                    showDashboard(data.username); // Mostra o dashboard após o login bem-sucedido
+                    loginForm.reset(); 
+                    showDashboard(data.username); 
                 } else {
                     showAlert(loginAlert, data.message, 'error');
                 }
@@ -164,21 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Lógica do Dashboard ---
-    // Torna o dashboard visível e esconde a tela de login/registro
     const showDashboard = (username) => {
         if (container) container.style.display = 'none';
         if (dashboard) dashboard.style.display = 'block';
         if (welcomeUser) welcomeUser.textContent = `Olá, ${username}!`;
-        loadUsers(); // Carrega os usuários ao entrar no dashboard
+        loadUsers(); 
     };
 
-    // Esconde o dashboard e mostra a tela de login/registro
+    
     window.hideDashboard = () => {
         if (dashboard) dashboard.style.display = 'none';
-        // Usamos 'flex' aqui, pois o CSS original do container usa display:flex
         if (container) container.style.display = 'flex';
         if (welcomeUser) welcomeUser.textContent = '';
-        if (usersList) usersList.innerHTML = ''; // Limpa a lista de usuários
+        if (usersList) usersList.innerHTML = '';
     };
 
     // Lógica para logout (apenas esconde o dashboard e mostra a tela de login)
@@ -192,20 +171,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Listar Usuários (Read) ---
-    // Carrega e exibe a lista de usuários, com paginação e busca
     window.loadUsers = async (page = 1, searchTerm = '') => {
-        if (usersLoading) usersLoading.style.display = 'flex'; // Mostra indicador de carregamento
-        if (usersAlert) usersAlert.textContent = ''; // Limpa alertas anteriores
-        if (usersList) usersList.innerHTML = ''; // Limpa a lista de usuários
+        if (usersLoading) usersLoading.style.display = 'flex'; 
+        if (usersAlert) usersAlert.textContent = ''; 
+        if (usersList) usersList.innerHTML = ''; 
         currentPage = page;
         currentSearchTerm = searchTerm;
 
         try {
             // Requisição AJAX para o backend de listagem de usuários
             const response = await fetch(`backend/listar_usuarios.php?page=${currentPage}&search=${encodeURIComponent(currentSearchTerm)}`);
-            const data = await response.json(); // Analisa a resposta JSON
+            const data = await response.json();
 
-            if (usersLoading) usersLoading.style.display = 'none'; // Esconde indicador de carregamento
+            if (usersLoading) usersLoading.style.display = 'none'; 
 
             if (data.success) {
                 if (data.users && data.users.length > 0) {
@@ -230,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     renderPagination(data.total_pages, data.current_page);
                 } else {
                     if (usersList) usersList.innerHTML = '<p class="info-message">Nenhum usuário encontrado.</p>';
-                    if (usersPagination) usersPagination.innerHTML = ''; // Limpa botões de paginação
+                    if (usersPagination) usersPagination.innerHTML = ''; 
                 }
             } else {
                 showAlert(usersAlert, data.message, 'error');
@@ -246,39 +224,37 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchInput) {
         let searchTimeout;
         searchInput.addEventListener('keyup', () => {
-            clearTimeout(searchTimeout); // Limpa o timeout anterior
+            clearTimeout(searchTimeout); 
             searchTimeout = setTimeout(() => {
-                loadUsers(1, searchInput.value); // Recarrega usuários com o termo de busca após 500ms
-            }, 500); // 500ms de atraso
+                loadUsers(1, searchInput.value); 
+            }, 500);
         });
     }
 
     // --- Paginação ---
-    // Renderiza os botões de paginação
     const renderPagination = (totalPages, currentPage) => {
         if (!usersPagination) return;
-        usersPagination.innerHTML = ''; // Limpa a paginação existente
+        usersPagination.innerHTML = ''; 
         if (totalPages > 1) {
             for (let i = 1; i <= totalPages; i++) {
                 const button = document.createElement('button');
                 button.textContent = i;
-                button.className = `page-btn ${i === currentPage ? 'active' : ''}`; // Adiciona classe 'active' para a página atual
-                button.onclick = () => loadUsers(i, currentSearchTerm); // Define o evento de clique para carregar a página
+                button.className = `page-btn ${i === currentPage ? 'active' : ''}`; 
+                button.onclick = () => loadUsers(i, currentSearchTerm); 
                 usersPagination.appendChild(button);
             }
         }
     };
 
     // --- Modal de Edição (Update) ---
-    // Abre o modal de edição com os dados do usuário preenchidos
     window.openEditModal = (id, username, email) => {
         if (!editModal || !editUserId || !editUsername || !editEmail || !editAlert) return;
         editUserId.value = id;
         editUsername.value = username;
         editEmail.value = email;
-        editPassword.value = ''; // Limpa o campo de senha
-        editAlert.textContent = ''; // Limpa alertas anteriores
-        editModal.style.display = 'flex'; // Exibe o modal (display flex para centralizar)
+        editPassword.value = ''; 
+        editAlert.textContent = ''; 
+        editModal.style.display = 'flex'; 
     };
 
     // Fecha o modal de edição
@@ -288,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (editForm) {
         editForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Previne o envio padrão do formulário
+            e.preventDefault();
             const id = editUserId.value;
             const username = editUsername.value;
             const email = editEmail.value;
@@ -304,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('id', id);
             formData.append('username', username);
             formData.append('email', email);
-            if (password) { // Adiciona a senha apenas se não estiver vazia
+            if (password) {
                 formData.append('password', password);
             }
 
@@ -314,12 +290,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     body: formData
                 });
-                const data = await response.json(); // Analisa a resposta JSON
+                const data = await response.json(); 
 
                 if (data.success) {
                     showAlert(editAlert, data.message, 'success');
-                    closeEditModal(); // Fecha o modal após o sucesso
-                    loadUsers(currentPage, currentSearchTerm); // Recarrega a lista de usuários
+                    closeEditModal(); 
+                    loadUsers(currentPage, currentSearchTerm); 
                 } else {
                     showAlert(editAlert, data.message, 'error');
                 }
@@ -331,45 +307,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Excluir Usuário (Delete) com Modal Customizado ---
-    // Abre o modal de confirmação customizado
+    
     window.showCustomConfirm = (id) => {
         if (!customConfirmModal || !confirmMessage || !confirmYesBtn || !confirmNoBtn) return;
 
-        deleteUserId = id; // Armazena o ID do usuário para a exclusão
+        deleteUserId = id; 
         confirmMessage.textContent = 'Tem certeza que deseja excluir este usuário?';
-        customConfirmModal.style.display = 'flex'; // Exibe o modal
+        customConfirmModal.style.display = 'flex'; 
 
-        // Garante que listeners antigos não se acumulem
+        
         confirmYesBtn.onclick = null;
         confirmNoBtn.onclick = null;
 
         confirmYesBtn.onclick = () => {
-            customConfirmModal.style.display = 'none'; // Esconde o modal
-            deleteUser(deleteUserId); // Chama a função de exclusão
+            customConfirmModal.style.display = 'none'; 
+            deleteUser(deleteUserId); 
         };
 
         confirmNoBtn.onclick = () => {
-            customConfirmModal.style.display = 'none'; // Esconde o modal
-            deleteUserId = null; // Limpa o ID
+            customConfirmModal.style.display = 'none'; 
+            deleteUserId = null; 
         };
     };
 
-    // Função que realmente realiza a exclusão
+
     window.deleteUser = async (id) => {
         const formData = new FormData();
         formData.append('id', id);
 
         try {
-            // Requisição AJAX para o backend de exclusão de usuário
             const response = await fetch('backend/deletar_usuario.php', {
                 method: 'POST',
                 body: formData
             });
-            const data = await response.json(); // Analisa a resposta JSON
+            const data = await response.json(); 
 
             if (data.success) {
                 showAlert(usersAlert, data.message, 'success');
-                loadUsers(currentPage, currentSearchTerm); // Recarrega a lista de usuários
+                loadUsers(currentPage, currentSearchTerm); 
             } else {
                 showAlert(usersAlert, data.message, 'error');
             }
