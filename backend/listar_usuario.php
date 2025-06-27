@@ -4,8 +4,7 @@ require_once '../conexao.php';
 
 header('Content-Type: application/json');
 
-$response = ['success' => false, 'message' => ''];
-
+$response = ['success' => false, 'message' => '', 'data' => []];
 
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $response['message'] = "Acesso não autorizado.";
@@ -13,68 +12,50 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'] ?? null;
-    $username = trim($_POST['username'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $password = trim($_POST['password'] ?? ''); 
+$database = new Database();
+$conn = $database->getConnection();
 
-    if (empty($id) || empty($username) || empty($email)) {
-        $response['message'] = "ID do usuário, nome de usuário e e-mail são obrigatórios.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $response['message'] = "Formato de e-mail inválido.";
-    } else {
-        try {
-           
-            $sql_check = "SELECT id FROM usuarios WHERE (nome_usuario = ? OR email = ?) AND id != ?";
-            if ($stmt_check = mysqli_prepare($conexao, $sql_check)) {
-                mysqli_stmt_bind_param($stmt_check, "ssi", $username, $email, $id);
-                mysqli_stmt_execute($stmt_check);
-                mysqli_stmt_store_result($stmt_check);
+if ($conn) {
+    try {
+        $id = $_GET['id'] ?? null;
 
-                if (mysqli_stmt_num_rows($stmt_check) > 0) {
-                    $response['message'] = "Nome de usuário ou e-mail já está sendo usado por outro usuário.";
-                    mysqli_stmt_close($stmt_check);
-                    echo json_encode($response);
-                    exit;
-                }
-                mysqli_stmt_close($stmt_check);
+        if ($id) {
+            $sql = "SELECT id, nome_usuario, email FROM usuarios WHERE id = :id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user) {
+                $response['success'] = true;
+                $response['message'] = "Usuário encontrado com sucesso!";
+                $response['data'] = $user;
             } else {
-                throw new Exception("Erro ao preparar consulta de verificação: " . mysqli_error($conexao));
+                $response['message'] = "Usuário não encontrado.";
             }
+        } else {
+            $sql = "SELECT id, nome_usuario, email FROM usuarios ORDER BY nome_usuario ASC";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            
-            if (!empty($password)) {
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $sql_update = "UPDATE usuarios SET nome_usuario = ?, email = ?, senha = ? WHERE id = ?";
-                $stmt_update = mysqli_prepare($conexao, $sql_update);
-                mysqli_stmt_bind_param($stmt_update, "sssi", $username, $email, $hashed_password, $id);
+            if ($users) {
+                $response['success'] = true;
+                $response['message'] = "Usuários listados com sucesso!";
+                $response['data'] = $users;
             } else {
-                $sql_update = "UPDATE usuarios SET nome_usuario = ?, email = ? WHERE id = ?";
-                $stmt_update = mysqli_prepare($conexao, $sql_update);
-                mysqli_stmt_bind_param($stmt_update, "ssi", $username, $email, $id);
+                $response['message'] = "Nenhum usuário encontrado.";
             }
-
-            if ($stmt_update) {
-                if (mysqli_stmt_execute($stmt_update)) {
-                    $response['success'] = true;
-                    $response['message'] = "Usuário atualizado com sucesso!";
-                } else {
-                    $response['message'] = "Erro ao atualizar usuário: " . mysqli_error($conexao);
-                }
-                mysqli_stmt_close($stmt_update);
-            } else {
-                throw new Exception("Erro ao preparar consulta de atualização: " . mysqli_error($conexao));
-            }
-
-        } catch (Exception $e) {
-            $response['message'] = $e->getMessage();
         }
+
+    } catch (PDOException $e) {
+        $response['message'] = "Erro no banco de dados: " . $e->getMessage();
+    } finally {
+        $conn = null;
     }
 } else {
-    $response['message'] = "Requisição inválida.";
+    $response['message'] = "Erro: Não foi possível obter a conexão com o banco de dados.";
 }
 
-mysqli_close($conexao);
 echo json_encode($response);
 ?>

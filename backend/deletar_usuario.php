@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../conexao.php';
+require_once '../conexao.php'; 
 
 header('Content-Type: application/json');
 
@@ -18,31 +18,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($id)) {
         $response['message'] = "ID do usuário é obrigatório.";
     } else {
-        
-        $sql = "DELETE FROM usuarios WHERE id = ?";
-        if ($stmt = mysqli_prepare($conexao, $sql)) {
-            mysqli_stmt_bind_param($stmt, "i", $param_id);
-            $param_id = $id;
+        $database = new Database();
+        $conn = $database->getConnection();
 
-            if (mysqli_stmt_execute($stmt)) {
-                if (mysqli_stmt_affected_rows($stmt) > 0) {
-                    $response['success'] = true;
-                    $response['message'] = "Usuário excluído com sucesso!";
+        if ($conn) { 
+            try {
+                
+                $sql = "DELETE FROM usuarios WHERE id = :id";
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+                
+                if ($stmt->execute()) {
+                    
+                    if ($stmt->rowCount() > 0) {
+                        $response['success'] = true;
+                        $response['message'] = "Usuário excluído com sucesso!";
+                    } else {
+                        $response['message'] = "Usuário não encontrado ou já excluído.";
+                    }
                 } else {
-                    $response['message'] = "Usuário não encontrado ou já excluído.";
+                    
+                    $response['message'] = "Erro ao excluir usuário: " . implode(" - ", $stmt->errorInfo());
                 }
-            } else {
-                $response['message'] = "Erro ao excluir usuário: " . mysqli_error($conexao);
+            } catch (PDOException $e) {
+                $response['message'] = "Erro no banco de dados: " . $e->getMessage();
+            } finally {
+                $conn = null;
             }
-            mysqli_stmt_close($stmt);
         } else {
-            $response['message'] = "Erro ao preparar consulta de exclusão: " . mysqli_error($conexao);
+            $response['message'] = "Erro: Não foi possível obter a conexão com o banco de dados.";
         }
     }
 } else {
     $response['message'] = "Requisição inválida.";
 }
 
-mysqli_close($conexao);
 echo json_encode($response);
 ?>
