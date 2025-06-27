@@ -1,13 +1,21 @@
 <?php
+class Database {
+    private $host = "localhost";
+    private $db_name = "Suafacul_crud";
+    private $username = "root";
+    private $password = "";
+    public $conn;
 
-define('DB_SERVER', 'localhost'); 
-define('DB_USERNAME', 'root');   
-define('DB_PASSWORD', '');       
-define('DB_NAME', 'suafacul_crud');
-
-$conexao = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-if($conexao === false){
-    die("ERRO: Não foi possível conectar ao banco de dados. " . mysqli_connect_error());
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->exec("set names utf8");
+        } catch(PDOException $exception) {
+            echo "Erro de conexão: " . $exception->getMessage();
+        }
+        return $this->conn;
+    }
 }
 ?>
