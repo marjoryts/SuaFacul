@@ -19,11 +19,14 @@
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 
     /*borda */
-    --radius-sm: 5px; /* (botões) */
-    --radius-md: 10px; /* (cards) */
-    --radius-lg: 20px; /* (containers) */
+    --radius-sm: 5px;
+    /* (botões) */
+    --radius-md: 10px;
+    /* (cards) */
+    --radius-lg: 20px;
+    /* (containers) */
 
-    
+
     --transition: all 0.3s ease;
 }
 
@@ -31,7 +34,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Faz padding e border fazerem parte da largura */
+    box-sizing: border-box;
+    /* Faz padding e border fazerem parte da largura */
 }
 
 
@@ -45,13 +49,15 @@ body {
 
 /* 5. SCROLLBAR PERSONALIZADA */
 body::-webkit-scrollbar {
-    width: 0.8em; 
+    width: 0.8em;
 }
+
 body::-webkit-scrollbar-track {
-    background: var(--light-bg); 
+    background: var(--light-bg);
 }
+
 body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color); 
+    background-color: var(--primary-color);
     border-radius: 10px;
     border: 2px solid var(--light-bg);
 }
@@ -62,17 +68,21 @@ body::-webkit-scrollbar-thumb {
 header {
     background: var(--second-color);
     box-shadow: var(--shadow-sm);
-    position: sticky; /* fixa no topo */
+    position: sticky;
+    /* fixa no topo */
     top: 0;
-    z-index: 100; /* pra ficar em cima mesmo que mexa no scrollbar */
+    z-index: 100;
+    /* pra ficar em cima mesmo que mexa no scrollbar */
 }
 
 /* Container for header content (logo + nav) */
 .header-content {
     display: flex;
-    justify-content: space-between; /* Space between logo and nav */
+    justify-content: space-between;
+    /* Space between logo and nav */
     align-items: center;
-    padding: 1rem 0; /* Padding inside the header-content */
+    padding: 1rem 0;
+    /* Padding inside the header-content */
 }
 
 .logo {
@@ -89,8 +99,8 @@ header {
 
 .navbar {
     display: flex;
-    gap: 2rem; 
-    align-items: center; 
+    gap: 2rem;
+    align-items: center;
 }
 
 /* Estilo dos links */
@@ -100,8 +110,8 @@ header {
     text-decoration: none;
     position: relative;
     transition: var(--transition);
-    padding: 4px 0; 
-    margin: 0 5px; 
+    padding: 4px 0;
+    margin: 0 5px;
     display: inline-block;
 }
 
@@ -124,12 +134,13 @@ header {
 .navbar a::after {
     content: '';
     position: absolute;
-    bottom: -2px; 
+    bottom: -2px;
     left: 0;
-    width: 0; /* Começa invisível */
+    width: 0;
+    /* Começa invisível */
     height: 2px;
     background: var(--primary-color);
-    transition: var(--transition); 
+    transition: var(--transition);
 }
 
 .navbar a:hover::after {
@@ -137,7 +148,7 @@ header {
 }
 
 /* BOTÃO ENTRAR */
-.btn-login { 
+.btn-login {
     padding: 0.7rem 1.4rem;
     background: var(--accent-color);
     color: var(--second-color);
@@ -145,7 +156,7 @@ header {
     border-radius: var(--radius-sm);
     font-weight: 600;
     cursor: pointer;
-    margin-left: 1rem; 
+    margin-left: 1rem;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
@@ -158,7 +169,7 @@ header {
 }
 
 .mobile-menu {
-    display: none; 
+    display: none;
     background: none;
     border: none;
     color: var(--primary-color);
@@ -190,7 +201,7 @@ header {
 }
 
 /* Destaque no futuro */
-.hero h1 strong { 
+.hero h1 strong {
     font-style: normal;
     color: var(--accent-color);
 }
@@ -251,8 +262,8 @@ header {
 
 /* Wave Divider */
 .wave {
-    background-color: var(--light-bg); 
-    height: 100px; 
+    background-color: var(--light-bg);
+    height: 100px;
     position: relative;
     overflow: hidden;
     margin-top: -1px;
@@ -260,9 +271,9 @@ header {
 
 /* CONTAINER PRINCIPAL */
 .container {
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem; 
+    padding: 0 1.5rem;
 }
 
 .courses-section {
@@ -448,11 +459,11 @@ header {
 }
 
 .tag.presencial {
-    background-color: #28a745; 
+    background-color: #28a745;
 }
 
 .tag.ead {
-    background-color: #007bff; 
+    background-color: #007bff;
 }
 
 .tag.semipresencial {
@@ -560,13 +571,13 @@ header {
 }
 
 .test-container {
-    background-color: rgba(255, 255, 255, 0.15); 
+    background-color: rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
     max-width: 700px;
     margin: 0 auto;
     box-shadow: var(--shadow-md);
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
 }
 
 .test-container h3 {
@@ -608,14 +619,14 @@ footer {
     color: var(--second-color);
     padding: 3rem 0;
 }
- 
+
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
 }
- 
+
 .footer-about h3,
 .footer-links h4,
 .footer-help h4,
@@ -624,23 +635,23 @@ footer {
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
- 
+
 .footer-about p {
     font-size: 0.95rem;
     line-height: 1.8;
     opacity: 0.8;
 }
- 
+
 .footer-links ul,
 .footer-help ul {
     list-style: none;
 }
- 
+
 .footer-links li,
 .footer-help li {
     margin-bottom: 0.7rem;
 }
- 
+
 .footer-links a,
 .footer-help a {
     color: var(--second-color);
@@ -649,29 +660,29 @@ footer {
     opacity: 0.8;
     transition: var(--transition);
 }
- 
+
 .footer-links a:hover,
 .footer-help a:hover {
     opacity: 1;
     color: var(--accent-color);
 }
- 
+
 .social-icons {
     display: flex;
     gap: 1rem;
 }
- 
+
 .social-icons a {
     color: var(--second-color);
     font-size: 1.5rem;
     transition: var(--transition);
 }
- 
+
 .social-icons a:hover {
     color: var(--accent-color);
     transform: translateY(-3px);
 }
- 
+
 .footer-copyright {
     text-align: center;
     padding-top: 1.5rem;
@@ -679,20 +690,191 @@ footer {
     font-size: 0.9rem;
     opacity: 0.7;
 }
- 
+
 /* Seção do Media Query para o rodapé */
 @media (max-width: 768px) {
     .footer-grid {
-        grid-template-columns: 1fr; /* Colunas empilhadas */
+        grid-template-columns: 1fr;
+        /* Colunas empilhadas */
         text-align: center;
     }
- 
+
     .footer-links ul,
     .footer-help ul {
         padding: 0;
     }
- 
+
     .footer-social .social-icons {
         justify-content: center;
+    }
+}
+
+/* No seu CSS existente, adicione ou modifique estas regras */
+
+/* MOBILE MENU */
+.mobile-menu {
+    display: none;
+    /* Esconde por padrão em telas maiores */
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsividade do Header e Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        /* Esconde a navbar padrão */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--second-color);
+        box-shadow: var(--shadow-md);
+        padding: 1rem 0;
+        border-top: 1px solid #eee;
+        z-index: 99;
+        /* Abaixo do header fixo */
+    }
+
+    .navbar.active {
+        display: flex;
+        /* Mostra a navbar quando a classe 'active' é adicionada */
+    }
+
+    .navbar a {
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar .btn-login {
+        width: calc(100% - 3rem);
+        /* Ajuste para o padding */
+        margin: 1rem 1.5rem 0;
+        /* Centraliza o botão */
+    }
+
+    .mobile-menu {
+        display: block;
+        /* Mostra o botão de menu mobile */
+    }
+
+    /* Ajustes para o hero section em telas pequenas */
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        /* Ajusta tamanho do texto */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .search-box input {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .btn-search {
+        width: 100%;
+        justify-content: center;
+        /* Centraliza o texto do botão */
+    }
+}
+
+/* Responsividade para a seção de cursos */
+@media (max-width: 992px) {
+    .courses-container {
+        flex-direction: column;
+        /* Empilha filtros e lista de cursos */
+    }
+
+    .filters {
+        flex: auto;
+        /* Permite que o filtro ocupe a largura total */
+        width: 100%;
+        margin-bottom: 2rem;
+        /* Espaço entre filtros e cursos */
+    }
+
+    .filters-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Colunas flexíveis */
+        gap: 1.5rem;
+    }
+
+    .filter-group {
+        border-bottom: none;
+        /* Remove bordas de grupos quando empilhados */
+        padding-bottom: 0;
+    }
+
+    .filter-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        /* Espaçamento entre os botões de filtro */
+    }
+
+    .filter-options button {
+        width: auto;
+        /* Largura automática para os botões */
+        flex-grow: 1;
+        /* Permite que cresçam para preencher espaço */
+    }
+
+    .btn-apply {
+        margin-top: 1.5rem;
+        grid-column: 1 / -1;
+        /* Ocupa todas as colunas */
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Ajusta grid de cursos */
+    }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .test-container {
+        padding: 1.5rem;
+    }
+
+    .test-container h3 {
+        font-size: 1.3rem;
+    }
+
+    .test-container p {
+        font-size: 0.95rem;
+    }
+
+    .btn-test {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
     }
 }
