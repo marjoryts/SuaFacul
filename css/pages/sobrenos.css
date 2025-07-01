@@ -221,14 +221,35 @@ header {
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    max-width: 250px;
+    max-width: 150px;
 }
 
 .team-member-card img {
-    width: 100%;
-    border-radius: 50%;
+    width: 110%;
+    border-radius: 10%;
     margin-bottom: 1rem;
 }
+
+.foto_1 {
+    width: 30%;
+    height: 50%;
+}
+
+.foto_2{
+ width: 30%;
+ height: 50%;
+}
+
+.foto_3 {
+width: 30%;
+height: 50%;
+}
+
+.foto_4 {
+width: 30%;
+height: 50%;
+}
+
 
 .team-member-card h3 {
     color: var(--primary-color);
